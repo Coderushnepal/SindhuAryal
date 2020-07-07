@@ -20,6 +20,7 @@ i.e. mobile*/
 .container {
     width: 100%;
     margin: 0 auto;
+    padding: 0 20px;
     /* background-color:red; */
 }
 
@@ -193,11 +194,11 @@ p {
     padding: 9px 14px 10px 15px;
     margin: 20px;
 }
-/* To those devices whose viewport is 768px-1199px. 
+/* To those devices whose viewport is 768px-991px. 
 i.e. tablet*/
 @media screen and (min-width: 768px) {
     .container {
-        width: 98%;
+        width: 1240px;
         /* background-color: teal; */
         margin: 0 auto;
     }
@@ -274,17 +275,21 @@ i.e. tablet*/
         margin: 0 auto;
 
     }
-    
-
-
 }
 
+/* To those devices whose viewport is 992px-1199px. 
+i.e. tablet*/
+@media screen and (min-width: 992px) {
+    .container {
+        /* max-width: 1300px;; */
+    }
+}
 
 /* To those devices whose viewport is 1200px-infinite. 
 i.e. desktop*/
 @media screen and (min-width: 1200px) {
     .container {
-            width: 98%;
+            max-width: 1400px;
             /* background-color: greenyellow; */
             margin: 0 auto;
     }
