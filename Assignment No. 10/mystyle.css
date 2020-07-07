@@ -21,7 +21,6 @@ i.e. mobile*/
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-    /* background-color:red; */
 }
 
 .header {
@@ -65,12 +64,12 @@ i.e. mobile*/
 
 .intro_section {
     background: linear-gradient(90deg, #FFFCEB 0%, #EAFFFE 100%);
-    width: 100%;
 }
 
 .intro_left{
     width: 100%;
     padding: 60px 55px 25px 20px;
+    margin: 60px 0;
 }
 
 .intro_left h1 {
@@ -153,7 +152,7 @@ i.e. mobile*/
 
   .training_section {
     width: 100%;
-    background-color: tomato;
+    /* background-color: tomato; */
 }
 
 .training-con {
@@ -198,7 +197,6 @@ p {
 i.e. tablet*/
 @media screen and (min-width: 768px) {
     .container {
-        width: 1240px;
         /* background-color: teal; */
         margin: 0 auto;
     }
