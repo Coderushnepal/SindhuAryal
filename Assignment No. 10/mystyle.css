@@ -152,6 +152,7 @@ i.e. mobile*/
 
   .training_section {
     width: 100%;
+    padding-bottom: 15px;;
     /* background-color: tomato; */
 }
 
@@ -193,6 +194,76 @@ p {
     padding: 9px 14px 10px 15px;
     margin: 20px;
 }
+
+.footer-container{
+    /* background-color: aliceblue ; */
+}
+
+.footer-title {
+    padding-left:  20px;
+}
+
+h4.left{
+    font-size: 16px;
+    /* line-height: 28px; */
+    padding: 20px 0px;
+}
+
+img.right {
+    padding-top: 30px;
+    padding-right: 33px;
+}
+
+hr {
+    width: 95%; 
+    color: black; 
+}
+
+.footer-bottom {
+    padding: 5px 0px;
+}
+
+.footer-content{
+    display: none;
+}
+
+ul.social-icons {
+    list-style-type: none;
+}
+
+.social-icons li {
+    float: left;
+}
+
+.social-icons li img {
+    padding: 9px 9.02px 9px 20px;
+}
+
+.footer-bottom span {
+    font-size: 10px;
+    line-height: 28px;
+    padding: 12px 0px 16px 20px;
+}
+
+span.left.cr {
+    display: none;
+}
+
+hr.line {
+    display: none;
+}
+
+ul.social-icons.right {
+    position: relative;
+    float: left;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.social , .left-cr {
+    display: none;
+}
+
 /* To those devices whose viewport is 768px-991px. 
 i.e. tablet*/
 @media screen and (min-width: 768px) {
@@ -273,15 +344,76 @@ i.e. tablet*/
         margin: 0 auto;
 
     }
+
+    .footer-container {
+        /* background-color: #3AE4DF; */
+    }
+
+    .footer-top.clearfix {
+        padding-bottom: 20px;
+    }
+    .footer-top-container  {
+        float: left;
+        width: 33.3333333333%;
+        text-decoration: none;
+    }
+
+    .footer-title{
+        padding-left: 0px;
+    }
+
+    .footer-title h4{
+        font-size: 18px;
+        line-height: 28px;
+        color: #000000;
+        padding: 30px 0px 16px 0px;
+    }
+
+    .footer-title img ,
+    hr {
+        display: none;
+    }
+
+    .footer-content {
+        display: block;
+    }
+
+    ul.footer-content {
+        /* padding: 0px 20px; */
+        list-style-type: none;
+    }
+
+    ul.footer-content li  a{
+        font-size: 14px;
+        line-height: 0px;
+       text-transform: none;
+       text-decoration: none;
+    }
+
+    .social {
+        display: block;
+    }
+    
+    .social-icons li img {
+        padding: 25px 15px 0px 0px;
+    }
+
+    .social-icons.right ,
+    .left-cr {
+        display: none;
+    }
+
+    hr.line {
+        display: block;
+    }
+   
 }
 
 /* To those devices whose viewport is 992px-1199px. 
 i.e. tablet*/
-@media screen and (min-width: 992px) {
+/* @media screen and (min-width: 992px) {
     .container {
-        /* max-width: 1300px;; */
-    }
-}
+        /* max-width: 1300px;; }}*/
 
 /* To those devices whose viewport is 1200px-infinite. 
 i.e. desktop*/
@@ -409,6 +541,93 @@ i.e. desktop*/
         padding: 12px 14px 11px 15px;
         margin: 20px;
     }
+
+    .footer-container {
+        /* background-color: #3AE4DF; */
+    }
+
+    .footer-top {
+        padding-top: 40px;
+        padding-bottom: 25px;
+    }
+
+    .footer-top-container{
+        float: left;
+        width: 20%;
+    }
+
+    .footer-title {
+        width: 100%;
+    }
+
+    .footer-title h4{
+        font-size: 18px;
+        line-height: 28px;
+        color: #000000;
+    }
+
+    h4.left {
+        padding: 14px 16px;
+    }
+
+    .footer-title img {
+        display: none;
+    }
+
+    ul.footer-content {
+        padding: 0px;
+    }
+
+    ul.footer-content li {
+        float: none;
+    }
+
+
+    ul.footer-content li  a{
+        font-size: 14px;
+        line-height: 0px;
+       text-transform: none;
+    }
+
+    hr.line {
+        display: block;
+        /* width: 90%; */
+        color: black;
+        /* position: relative;
+        left: 30px; */
+    }
+
+    .footer-bottom span{
+        /* padding : 12px 0px 16px 60px; */
+    }
+
+    .social {
+        display: none;
+    }
+    
+    .social-icons.right,
+    .left-cr {
+        display: block;
+    }
+
+    .left-cr{
+        float: left;
+    }
+
+    ul.social-icons.right {
+        float: right;
+        position: relative;
+        right: 100px;
+    }
+
+    .social-icons li img {
+        padding: 0px 0px 0px 10px;
+    }
+
+    .footer-bottom span.left {
+        display: none;
+    }
+    
 }
 
 
