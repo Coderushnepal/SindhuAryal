@@ -4,7 +4,7 @@ function starPattern(str) {
 	let result = '';
 	for (let i = str; i >= 1; i--) {
 		for (let j = 1; j <= i; j++) {
-			result = result.concat('*');
+			result = result.concat(' *');
 		}
 		result = result.concat('\n');
 	}
@@ -57,35 +57,47 @@ console.log(' \n \n');
 
 
 console.log(' ---------- Ans 4----------  \n');
+// function identicalFilter(arr) {
+// 	// Do not test the first array element, as you have nothing to compare to
+// 	if (arr.length === 0) {
+// 		return [];
+// 	  }
+// 	 // array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+// 	 //The reduce() method reduces the array to a single value.  (from left-to-right).
+
+// 	  return arr.reduce((acc, curr) => {
+// 		let firstChar = curr.charAt(0);
+// 		 //do each array element value match the value of the previous array element
+		 
+	
+// 		let isSame = curr.split('').every(item => item === firstChar); //array.every(function(currentValue, index, arr), thisValue)
+// 		// console.log(isSame);
+// 		if (isSame) {
+// 		  acc.push(curr)
+// 		}
+// 		return acc;
+// 	  }, [])
+// }
 
 function identicalFilter(arr) {
-	// Do not test the first array element, as you have nothing to compare to
-	if (arr.length === 0) {
-		return [];
-	  }
-	 // array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
-	 //The reduce() method reduces the array to a single value.  (from left-to-right).
-
-	  return arr.reduce((acc, curr) => {
-		let firstChar = curr.charAt(0);
-		 //do each array element value match the value of the previous array element
-		 //array.every(function(currentValue, index, arr), thisValue)
-		let isSame = curr.split('').every(item => item === firstChar); 
-		if (isSame) {
-		  acc.push(curr)
+	let identical = [];
+	let count = 0;
+	for (i = 0; i < arr.length; i++) {
+		let repeatation = new Set(arr[i]);
+		if (repeatation.size === 1) {
+			identical[count++] = arr[i];
 		}
-		return acc;
-	  }, [])
+	}
+	return identical;
 }
 
-console.log(identicalFilter([ '88', '999', '22', '545', '133' ]) );
-console.log(identicalFilter([ 'xxxxo', 'oxo', 'xox', 'ooxxoo', 'oxo' ]) );
+console.log(identicalFilter( ['88', '999', '22', '545', '133']) );
+console.log(identicalFilter( ['xxxxo', 'oxo', 'xox', 'ooxxoo', 'oxo']) );
 console.log(' \n \n');
 
 
 
 console.log(' ---------- Ans 5----------  \n');
-
 function keysAndValues(obj){
 	let keys = Object.keys(obj);			//keys
 	keys.sort();
