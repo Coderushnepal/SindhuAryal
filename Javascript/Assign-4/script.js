@@ -18,25 +18,42 @@ btn.addEventListener('click', function(){
    
     var direction = 1;
 
-    dot.addEventListener('click', function(){
-        // var direction = 1;
-        setInterval(
-            (function(){
-                var myDot = dot;
-                return function(){
-                    var currentTop = myDot.style.top;
-                    // console.log(currentTop);
-                    var nextTop = parseInt(currentTop) + 10 * direction;
-                    myDot.style.top = nextTop + "px";
-                    // console.log(nextTop);
-                    var clientHeight = box.clientHeight;
-                    if(nextTop >= (clientHeight-25) || nextTop <= 0 ){
-                        direction *= -1;
-                    }
-                };
-            }) (),
-        1000/60, );
-    });
+    setInterval(
+        (function(){
+            var myDot = dot;
+            return function(){
+                var currentTop = myDot.style.top;
+                // console.log(currentTop);
+                var nextTop = parseInt(currentTop) + 10 * direction;
+                myDot.style.top = nextTop + "px";
+                // console.log(nextTop);
+                var clientHeight = box.clientHeight;
+                if(nextTop >= (clientHeight-25) || nextTop <= 0 ){
+                    direction *= -1;
+                }
+            };
+        }) (),
+    1000/60, );
+
+    // dot.addEventListener('click', function(){
+    //     // var direction = 1;
+    //     setInterval(
+    //         (function(){
+    //             var myDot = dot;
+    //             return function(){
+    //                 var currentTop = myDot.style.top;
+    //                 // console.log(currentTop);
+    //                 var nextTop = parseInt(currentTop) + 10 * direction;
+    //                 myDot.style.top = nextTop + "px";
+    //                 // console.log(nextTop);
+    //                 var clientHeight = box.clientHeight;
+    //                 if(nextTop >= (clientHeight-25) || nextTop <= 0 ){
+    //                     direction *= -1;
+    //                 }
+    //             };
+    //         }) (),
+    //     1000/60, );
+    // });
 
     box.appendChild(dot);
 });
