@@ -1,6 +1,6 @@
 function myFunction() {
-    var x = document.getElementById("myInput");
-    var y = document.getElementById("eyeIcon");
+    var x = document.getElementById("myInput"); //password
+    var y = document.getElementById("eyeIcon");  //showpwd
     if (x.type === "password") {
       x.type = "text";
       eyeIcon.title = "Hide Password"
@@ -13,9 +13,11 @@ function myFunction() {
     }
 
             // or
-    //eyeIcon.addEventListener('click', function(e) {
-    //     var x = password.getAttribute('type') == 'password' ? 'text' : 'password';
-    //     password.setAttribute('x', type);
+    //         <input type="password" class="password" id="password" placeholder="enter password here">
+    // <i class="fa fa-eye" id="showpwd" aria-hidden="true"></i>
+    // eyeIcon.addEventListener('click', function(e) {
+    //     var type = x.getAttribute('type') == 'password' ? 'text' : 'password';
+    //     x.setAttribute('type', type);
     //     this.classList.toggle('fa-eye-slash');
     // });
 
