@@ -11,7 +11,9 @@ Remove:
 -removed automatically when it reaches bottom of window.
 
 
-coderush.github.io/SagunKaranjit/index.html
+https://coderushnepal.github.io/SagunKaranjit/index.html
+
+
 
 
 
