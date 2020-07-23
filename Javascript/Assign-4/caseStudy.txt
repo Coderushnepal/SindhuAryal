@@ -1,0 +1,23 @@
+Create:
+-defined set of balls at top of frame
+-Different shapes, height, width,color,position.
+
+Move:
+-down-ward direction.
+-Different time interval and different speed.
+
+Remove:
+-when sticked at top can't be deleted, moving balls can only be deleted.
+-removed automatically when it reaches bottom of window.
+
+
+coderush.github.io/SagunKaranjit/index.html
+
+
+
+
+
+
+
+
+
