@@ -1,7 +1,5 @@
 function Ball(i) {
 	var id = i;
-	var ball = null;
-	var interval = null;
 	this.isDeleteable = false;
 	this.isDeleted = false;
 	var that = this;
@@ -28,12 +26,6 @@ function Ball(i) {
 		this.ball.style.height = height + 'px';
 	};
 
-	this.getDimension = function() {
-		return {
-			h: parseInt(this.ball.style.height),
-			w: parseInt(this.ball.style.width)
-		};
-	};
 
 	this.setPosition = function(x, y) {
 		this.ball.style.top = x + 'px';
@@ -55,7 +47,7 @@ function Ball(i) {
 			var currentTop = parseInt(that.ball.style.top);
 			var nextTop = currentTop + Math.ceil( Math.random() * 10 );
 			that.ball.style.top = nextTop + 'px';
-		}, 1000 / 60);
+		}, 100);
 	};
 
 	this.remove = function() {

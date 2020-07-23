@@ -8,12 +8,14 @@ function Animate() {
 			var dimension = parseInt(Math.random() * 80);
             ball.setDimension(dimension, dimension);
             
-			var position = new Position(window.innerWidth - dimension, 0);
+			var position = new Position(window.innerWidth, 0);
 			position.generateXY();
 			ball.setPosition(position.x, position.y);
             balls.push(ball);
 			
 			document.body.appendChild(ball.ball);
+
+
 			// ball.move();
 			var timeout = Math.random() * 10 * 1000;
 			setTimeout(

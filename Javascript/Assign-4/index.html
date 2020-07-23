@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ball Bouncing within a frame </title>
-    <style>
-         .body,
-    .html {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ball bounce when clicked</title>
+  <style>
+    * {
       margin: 0;
       padding: 0;
     }
-    .circle {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      position: absolute;
-      background-color: blue;
+    .pointer:hover{
+      cursor: pointer;
     }
     
-    .box {
-      height: 92vh;
-      margin-top: 10px;
-      border: 2px solid black;
-      position: relative;
+    .btn{
+      padding:10px 20px;
+      font-size: 20px;
     }
-    </style>
+    .frame {
+      height: 500px;
+      width: 900px;
+      border: 1px solid ;
+      position: relative;
+      margin-top : 50px;
+      margin-left: 50px;  
+    }
+
+  </style>
 </head>
 <body>
-    <button id="btn" > Generate circles</button>
-    <div class="box" id="box"> </div>
-
+  <button id="btn" class="btn pointer">Generate</button>
+  <div class="frame" id="frame"></div>
 </body>
-<script src="script.js"></script>
+<script src="ball-bounce.js"></script>
 </html>
