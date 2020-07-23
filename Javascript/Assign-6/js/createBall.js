@@ -1,10 +1,14 @@
-function Ball(i) {
-	var id = i;
+function Ball() {
+	var id = null;
+
+	this.intervalId = null;
+
 	this.isDeleteable = false;
 	this.isDeleted = false;
+
 	var that = this;
 
-	this.create = function() {
+	this.create = function(noOfBalls) {
 		this.ball = document.createElement('div');
 		this.ball.id = i;
 		
@@ -43,16 +47,17 @@ function Ball(i) {
 
 	this.move = function() {
 		this.isDeleteable = true;
+		var movement = Math.ceil(Math.random() * 5);
 		this.interval = setInterval(function() {
 			var currentTop = parseInt(that.ball.style.top);
-			var nextTop = currentTop + Math.ceil( Math.random() * 10 );
+			var nextTop = currentTop + movement;
 			that.ball.style.top = nextTop + 'px';
-		}, 100);
+		}, 1000/60 );
 	};
 
 	this.remove = function() {
-		document.body.removeChild(this.ball);
-		clearInterval(interval);
+		document.body.removeChild(that.ball);
+		clearInterval(that.intervalId);
 		this.isDeleted = true;
 	};
 }

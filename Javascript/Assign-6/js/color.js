@@ -1,1 +1,1 @@
-colors = ["red", "green", "yellow", "blue", "purple" , "aliceblue", "black", "orange", "pink"];
+colors = ["red", "green", "yellow", "blue", "purple" , "aliceblue", "black"];

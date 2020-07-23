@@ -7,7 +7,7 @@ function Position(width, height) {
 
 	var that = this;
 
-	this.generateXY = function() {
+	this.create = function() {
 		this.x = Math.random() * height;
 		this.y = Math.random() * width;
 	};
