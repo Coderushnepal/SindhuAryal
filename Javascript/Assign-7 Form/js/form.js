@@ -1,4 +1,8 @@
 function Form() {
+    var container = document.createElement('div');
+    container.classList.add('container');
+    document.body.appendChild(container);
+
     var form =  document.createElement("form");
     //  form.method = " ";
         form.action = " ";  
@@ -8,7 +12,6 @@ function Form() {
     title.innerHTML = "Register with us";
     form.appendChild(title);
 
-    
     //Username
     var uname =  document.createElement("label");
     uname.innerText = "Username";
@@ -92,7 +95,7 @@ function Form() {
     form.appendChild(btn);
     btn.classList.toggle("btn");
 
-    document.body.appendChild(form);
+    container.appendChild(form);
 
     // form.submit();
 }
