@@ -3,6 +3,10 @@ function Form() {
     container.classList.add('container');
     document.body.appendChild(container);
 
+    //body - container
+    //container - form
+    //form - h1, label, input
+
     var form =  document.createElement("form");
     //  form.method = " ";
         form.action = " ";  
