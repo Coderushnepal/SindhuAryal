@@ -1,142 +1,86 @@
+// Array of objects containing the elements inside the form
+var formAttributes = [
+    {
+        label: 'Username',
+		type: 'text',
+		name: 'username',
+		placeholder: 'Enter your username',
+		errorMsg: 'Username must be at least 3 characters'
+	},
+	{
+		label: 'Email',
+		type: 'email',
+		name: 'email',
+		placeholder: 'Enter your email',
+		errorMsg: 'Email is not valid'
+	},
+	{
+		label: 'Password',
+		type: 'password',
+		name: 'password',
+		placeholder: 'Enter your Password',
+		errorMsg: 'Password must be at least 6 characters'
+	},
+	{
+		label: 'Confirm Password',
+		type: 'password',
+		name: 'Comfirmpassword',
+		placeholder: 'Re-enter your Password',
+		errorMsg: 'Password Required'
+	}
+]   
+
 function Form() {
-    var container = document.createElement('div');
-    container.classList.add('container');
-    document.body.appendChild(container);
+    var i = 1;
+	this.createFormContainer = function(container) {
+		this.form = document.createElement('form');
+		this.form.classList.add('form');
+		container.append(this.form);
+	};
 
-    //body - container
-    //container - form
-    //form - h1, label, input
+	this.createForm = function(value, index) {
+		var label = document.createElement('label');
+		label.id = index + 1;
+		label.for = value.name;
+		label.innerHTML = value.label;
+		this.form.appendChild(label);
 
-    var form =  document.createElement("form");
-    //  form.method = " ";
-        form.action = " ";  
-        form.classList.toggle("form");
+		input = document.createElement('input');
+		input.classList.add('input');
+		input.id = value.name;
+		input.setAttribute('type', value.type);
+		input.setAttribute('name', value.name);
+		input.setAttribute('placeholder', value.placeholder);
+		if (value.type == 'password') {
+			input.setAttribute('required', 'required');
+		}
+		this.form.appendChild(input);
 
-    var title = document.createElement('h1');
-    title.innerHTML = "Register with us";
-    form.appendChild(title);
+		var errorDiv = document.createElement('div');
+		var divId = value.name + '-'+ 'error'; 
+		errorDiv.id = divId;
+		errorDiv.classList.add('errorBox', 'hidden');
+		errorDiv.innerHTML = value.errorMsg;
+		this.form.appendChild(errorDiv);
+	};
 
-    //Username
-    var uname =  document.createElement("label");
-    uname.innerText = "Username";
-    form.appendChild(uname);
-
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-
-    var username =  document.createElement("input");
-    username.name = "uname";
-    username.type = "text";
-    username.placeholder = "Enter username";
-    form.appendChild(username);
-
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-
-    //Email
-    var Email = document.createElement("label");
-    Email.innerText = "Email";
-    form.appendChild(Email);
-
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-
-    var email = document.createElement("input");
-    email.name="email";
-    email.type = "email";
-    email.placeholder ="Enter email";
-    form.appendChild(email);
-
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-
-
-    //Password
-    var pwd  = document.createElement("label"); 
-    pwd.innerText = "Password";
-    form.appendChild(pwd);
-
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-
-    var password  = document.createElement("input");
-    password.name = "password";
-    password.type = "password";
-    password.placeholder ="Enter password";
-    form.appendChild(password);
-
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-
-
-    //Confirm Password
-    var cpd = document.createElement("label"); 
-    cpd.innerText = "Confirm Password";
-    form.appendChild(cpd);
-
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-
-    var cpwd = document.createElement("input");
-    cpwd.name="cpassword";
-    cpwd.type =  "password";
-    cpwd.placeholder = "Confirm password";
-    form.appendChild(cpwd);
-
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-    var nextLine = document.createElement('br');
-    form.appendChild(nextLine);
-
-    var btn = document.createElement("BUTTON");
-    btn.innerHTML = "SUBMIT";
-    form.appendChild(btn);
-    btn.classList.toggle("btn");
-
-    container.appendChild(form);
-
-    // form.submit();
+	this.createSubmitButton = function() {
+        var btn = document.createElement("BUTTON");
+		btn.type = 'submit';
+		btn.name = 'submit';
+        btn.innerHTML = 'Submit';
+		btn.id = 'submit-btn';
+		this.form.appendChild(btn);
+	};
 }
 
+//------ Form container -----------------
+var container = document.createElement('div');
+container.classList.add('container');
+document.body.appendChild(container);
 
+//------- Form title ---------------------
+var title = document.createElement('h1');
+title.innerHTML = 'Register with us';
+container.appendChild(title);
 
-
-    // var frame = document.createElement('div');
-    // document.body.appendChild(frame);
-    // frame.classList.toggle("frame");
-
-    // var title = document.createElement('h1');
-    // title.innerHTML = "Register with us"
-    // frame.appendChild(title);
-
-    // var username = document.createElement('label');
-    // username.innerText = "Username";
-    // frame.appendChild(username);
-    // var uname = document.createElement('input');
-    // frame.appendChild(uname);
-
-    // var email = document.createElement('label');
-    // email.innerText = "Email";
-    // frame.appendChild(email);
-    // var Email = document.createElement('input');
-    // frame.appendChild(Email);
-
-    // var password = document.createElement('label');
-    // password.innerText = "Password";
-    // frame.appendChild(password);
-    // var pwd = document.createElement('input');
-    // frame.appendChild(pwd);
-
-    // var Cpassword = document.createElement('label');
-    // Cpassword.innerText = "Confirm Password";
-    // frame.appendChild(Cpassword);
-    // var cpwd = document.createElement('input');
-    // frame.appendChild(cpwd);
-
-    
