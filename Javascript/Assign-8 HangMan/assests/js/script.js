@@ -1,49 +1,91 @@
-const words = ["apple", "banana", "header", "cake", "Sindhu", "Monday", "Tuesday"];
-let index = Math.floor(Math.random() * words.length);
-// console.log(index);
-const randomWord = words[index];
+var container = document.createElement('div');
+document.body.appendChild(container);
+
+// to put guessed and wrong words
+var guessedWords = new Set();
+var wrongWords = new Set();
+// let count = 0;
+
+var words = ["Ant", "Banana", "Header", "Cake", "Sindhu", "Monday", "Tuesday", "Blacksheep"];
+
+
+// random word generate
+var randomWord= (words[Math.floor(Math.random()*words.length)]).toLowerCase();
 console.log(randomWord);
 
-var gameContainer = document.getElementById("game-container");
-// var dashContainer = document.getElementById("dash-container");
 
-for( let i=0; i < randomWord.length; i++) {
-    // console.log(randomWord.length);
-    var newDiv = document.createElement('div');
-    newDiv.classList.add('dash');
-    newDiv.setAttribute("id","dash")
-    
-    var dashContainer = document.getElementById('dash-container');
-    gameContainer.appendChild(dashContainer);
-    dashContainer.appendChild(newDiv);
+// div for dash
+var dashDiv = document.createElement('div');
+dashDiv.classList.add('dashDiv');
+container.appendChild(dashDiv);
+
+for (var i = 0; i < randomWord.length; i++) {
+    var dash = document.createElement('div');
+    dash.classList.add('dash');    
+    dashDiv.appendChild(dash);
 }
 
-var word = document.querySelectorAll("#dash");
-var wrongContainer = document.getElementById("wrong-container");
-var span = document.createElement("span");
-span.innerHTML= "Wrong";
+var gameContainer = document.getElementById("game-container");
+var wrongDiv = document.getElementById("wrongDiv");
 
-wrongContainer.appendChild(span);
+var wrongTitle = document.createElement('h4');
+wrongTitle.innerHTML = 'Wrong Letters';
+wrongTitle.classList.add('wrongTitle');
+wrongDiv.appendChild(wrongTitle);
 
-document.addEventListener("keydown", (e) => {
-    // console.log(e.key); 
-    let doesItmatches = randomWord.includes(e.key);
-    // console.log(doesItmatches);
+var letters = document.querySelectorAll('.dash');
 
-    if(doesItmatches)  {
-        for (var i = 0; i < randomWord.length; i++)
-        {
-            if(randomWord[i] === e.key)
-            {
-                word[i].innerHTML = e.key;
-            }      
-        }
+// hangman display 
+var k = 0;
+var figures = document.querySelectorAll(".figure-part");
+
+function displayFigureParts() {
+  var part = Array.from(figures);
+  part[k].style.display = "block";
+    k++;
+}
+
+// event listener to guess the letter
+document.addEventListener("keydown", function (e) {
+    var alreadyGuessed = document.getElementById('already-guessed');
+    document.body.appendChild(alreadyGuessed);
+
+    if( Array.from(guessedWords).includes(event.key)) {
+        console.log(alreadyGuessed);
+        alreadyGuessed.style.display = 'block';
+        alreadyGuessed.innerHTML = event.key +" is already guessed";
+       setTimeout( function(){ 
+        alreadyGuessed.style.display = 'none';
+       },2000); 
+        
+    } 
+    else {
+        alreadyGuessed.style.display = 'none';
+        guessedWords.add(event.key);
+        
+        if (randomWord.includes(e.key)) {
+            for (var j = 0; j < randomWord.length; j++) {
+                if (randomWord[j] === e.key) {
+                letters[j].innerHTML = e.key;
+                checkWin();
+                }
+            }
+        } 
+        else {            
+            var wrongLetters = document.getElementById("wrongLetters");
+            wrongWords.add(event.key);
+            wrongLetters.innerHTML = Array.from(wrongWords).join(',');
+            wrongDiv.appendChild(wrongLetters);
+            
+            count = count + 1;
+            console.log(count);
+
+            checklost();
+            displayFigureParts();  
+        } 
     }
-    else
-    {
-       // console.log("Milena");
-       var wrongLetter = document.createElement("p");
-       wrongLetter.innerHTML = e.key;
-       span.appendChild(wrongLetter);
-    }
- })
+});
+
+
+
+

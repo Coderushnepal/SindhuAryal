@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman</title>
-    <link rel="stylesheet" href="assests/css/style.css">
-</head>
-<body style="overflow: hidden;">
-    <div class="title">
-        <h1>Hangman</h1>
-        <p>Find the hidden word - Enter a letter </p>
-    </div>
-    <div class="game-container" id="game-container">
-      <div id="wrong-container" class="wrong-container">
-      </div>
-      <svg height="250" width="200" class="figure-container">
-        <!--  Rod  -->
-        <line x1="60" y1="20" x2="140" y2="20" />
-        <line x1="140" y1="20" x2="140" y2="50" />
-        <line x1="60" y1="20" x2="60" y2="230" />
-        <line x1="20" y1="230" x2="100" y2="230" />
-        <!--  Head  -->
-        <circle cx="140" cy="70" r="20" class="figure-part" />
-        <!--  Body  -->
-        <line x1="140" y1="90" x2="140" y2="150" class="figure-part" />
-        <!--  Arms  -->
-        <line x1="140" y1="120" x2="120" y2="100" class="figure-part" />
-        <line x1="140" y1="120" x2="160" y2="100" class="figure-part" />
-        <!--  Legs  -->
-        <line x1="140" y1="150" x2="120" y2="180" class="figure-part" />
-        <line x1="140" y1="150" x2="160" y2="180" class="figure-part" />
-      </svg>
-      
-      <div id="dash-container" class="dash-container">
-      </div>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assests/css/style.css">
+</head>
+
+<body style="overflow: hidden;">
+  <div class="title">
+    <h1>Hangman</h1>
+    <p>Find the hidden word - Enter a letter </p>
+</div>
+  <div class="game-container clearfix" id="game-container">
+    <div class="wrongDiv right" id="wrongDiv">
+      <div class="wrongLetters" id="wrongLetters"></div>
+    </div>
+    <svg height="250" width="200" class="figure-container left">
+      <!--  Rod  -->
+      <line x1="60" y1="20" x2="140" y2="20" />
+      <line x1="140" y1="20" x2="140" y2="50" />
+      <line x1="60" y1="20" x2="60" y2="230" />
+      <line x1="20" y1="230" x2="100" y2="230" />
+      <!--  Head  -->
+      <circle cx="140" cy="70" r="20" class="figure-part" />
+      <!--  Body  -->
+      <line x1="140" y1="90" x2="140" y2="150" class="figure-part" />
+      <!--  Arms  -->
+      <line x1="140" y1="120" x2="120" y2="100" class="figure-part" />
+      <line x1="140" y1="120" x2="160" y2="100" class="figure-part" />
+      <!--  Legs  -->
+      <line x1="140" y1="150" x2="120" y2="180" class="figure-part" />
+      <line x1="140" y1="150" x2="160" y2="180" class="figure-part" />
+    </svg>
+    <div id="already-guessed" class="already-guessed">
+
+    </div>
+  </div>
+  <div class="pop-up-bg"id="pop-up" >
+    <div class="pop-up-content">
+      <p id="pop-up-message">You won</p>
+      <button id="tryButton" class="tryButton">Play Again</button>
       
     </div>
-  </body>
+  </div>
+  <div id="game-over" class="game-over">
+  </div>
+</div>
+ 
+</body>
+
 <script src="assests/js/script.js"></script>
+<script src="assests/js/result.js"></script>
 </html>
