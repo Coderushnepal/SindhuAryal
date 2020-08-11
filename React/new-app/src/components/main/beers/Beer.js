@@ -27,7 +27,7 @@ class Beer extends Component {
 
     render(){
         const { isFavourite,showModal } = this.state;
-        const {id, name, description, image_url} = this.props.info;
+        const { id, name, description, image_url} = this.props.info;
 
         return(
             <Fragment>

@@ -6,6 +6,6 @@ export const fetchBeers = async() =>  {
     // });
 }
 
-export const fetchBeerById = async() => {
-    return dummyBeerData[0];
+export const fetchBeerById = async(id) => { 
+    return dummyBeerData[id-1];
 }

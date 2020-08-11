@@ -54,7 +54,7 @@ class BeerGrid extends Component {
                         ref={(r) => {this.scrollParentRef = r }}
                     >
                         {this.state.beers.map(beer => (
-                            <Beer key={beer.id} beerId={beer}  />
+                            <Beer key={beer.id} info={beer}  />
                         ))}
                    </div>
                </main>

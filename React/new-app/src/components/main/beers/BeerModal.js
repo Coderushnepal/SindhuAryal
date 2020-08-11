@@ -30,9 +30,9 @@ class BeerModal extends Component {
 
 
     render() {
-        const { isLoading,beer } = this.state;
-        const { id,handleClose, show } = this.props;
-        const { image_url, name,tagline, ibu,abv, ebc,description, food_pairing} = beer;
+        const { isLoading, beer } = this.state;
+        const { handleClose, show } = this.props;
+        const { name,tagline, ibu,abv, ebc,description, food_pairing} = beer;
 
         return (
             <Modal show={show} handleClose={handleClose}>
