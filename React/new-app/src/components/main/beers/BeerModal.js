@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 
 import {Modal, Spinner} from "../../common";
-import {fetchBeerById} from "../../../services/beerService"
+import * as toast from "../../../utils/toast";
+import {fetchBeerById} from "../../../services/beerService";
 
 class BeerModal extends Component {
     constructor(props) {
@@ -16,12 +17,22 @@ class BeerModal extends Component {
     }
 
     fetchBeer = async() =>  {
-       const data = await fetchBeerById(this.props.beerId);
+        try{
+            const data = await fetchBeerById(this.props.beerId);
 
-       this.setState({
-           beer: data,
-           isLoading: false,
-       });
+            this.setState({
+                beer: data,
+                isLoading: false,
+            });
+            toast.success({
+                title: "yaa!!",
+                message:"Beers aayo"});
+        } catch(error){
+            toast.error({
+                title: "Oh Snap!!", 
+                message:"Beers aayena"});
+        }
+      
     };
 
     componentDidMount() {

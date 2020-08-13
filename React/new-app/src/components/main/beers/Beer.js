@@ -48,6 +48,7 @@ class Beer extends Component {
                  style={{backgroundImage : `url(${image_url})` }}
                 />
                <h2 onClick={this.handleModalOpen}> {name}</h2>
+            
                <span className="card__description"> {description}  </span>
             </div>  
             </Fragment>
