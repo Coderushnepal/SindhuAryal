@@ -4,7 +4,8 @@ import { Router as BrowserRouter, Switch, Route} from 'react-router-dom';
 // import MainRouter from './main';
 // import FourOhfour from '../components/fourOhFour';
 
-import Main from "./main"
+import Main from "./main";
+import Favourites from "./common/favourites";
 import history from "../utils/history";
 
 import * as routes from "../constants/routes"
@@ -12,8 +13,8 @@ import * as routes from "../constants/routes"
 const Router = () => (
     <BrowserRouter history = {history}>
         <Switch>
-            <Route path={routes.HOME} component={Main}>
-            </Route>
+            <Route path={routes.HOME} component={Main} /> 
+            <Route path={routes.FAVOURITES} component={Favourites} />
             {/* <Route path="*" component={FourOhfour} /> */}
         </Switch>
     </BrowserRouter>

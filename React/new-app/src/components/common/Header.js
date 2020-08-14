@@ -28,7 +28,7 @@ class Header extends Component {
                                 <Link to={routes.HOME} title="home">Home</Link>
                             </li>
                             <li>
-                                <Link to={routes.FAVORITES} title="favorites">Favorites</Link>
+                                <Link to={routes.FAVOURITES} title="favourites">Favourites</Link>
                             </li>
                         </ul>
                     </div>

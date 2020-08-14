@@ -26,11 +26,13 @@ class BeerModal extends Component {
             });
             toast.success({
                 title: "yaa!!",
-                message:"Beers aayo"});
+                message:"Beers successfully retreived."});
         } catch(error){
+            // console.log(error);
+            const errorMsg = error.response.data.message;
             toast.error({
-                title: "Oh Snap!!", 
-                message:"Beers aayena"});
+                title: "Oh Snap!!",  message:errorMsg
+              });  // message:"Beers aayena"
         }
       
     };
