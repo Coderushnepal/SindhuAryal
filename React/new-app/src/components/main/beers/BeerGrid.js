@@ -14,8 +14,10 @@ class BeerGrid extends Component {
         this.state = {
             // isLoading : true,
             beers: [],
-            pageInfo: {page:1, size:25 },
+            pageInfo: {page:0, size:25 },
             hasMore: true,
+            searchFor: "",
+            hasFilter: false,
         };
     }
     
@@ -27,30 +29,46 @@ class BeerGrid extends Component {
 
     scrollParentRef = null;
 
+    setSearchText = (searchText)  => {
+        this.setState({
+            searchFor : searchText,
+            hasFilter: true,
+        }, ()=> this.fetchBeers()
+        );
+    };
+
     fetchBeers = async() => {
         try{
-            const {page,size} = this.state.pageInfo;
+            const{beers, pageInfo,searchFor,hasFilter} = this.state;
+            let {page,size} = pageInfo;
+
+            // if(!!searchFor) {
+            //     page=0;
+            // }
+
+            if(hasFilter){
+                page = 0;
+            }
 
             // this.toggleLoading(true);
-            const data = await fetchBeers(page + 1, size); //sending default values of page and size to beerService.js
-
+            const data = await fetchBeers(page + 1, size, searchFor);              //sending default values of page and size to beerService.js
             this.setState({
-                beers: [...this.state.beers, ...data],  
+                // beers: [...beers, ...data], 
+                beers: hasFilter ? data : [...beers, ...data], 
                 // isLoading:false,
                 pageInfo: {
-                    ...this.state.pageInfo,         //spread gareko- yo garda pageInfo ko sabai original values haru aauncha
+                    ...pageInfo,                                         //spread gareko- yo garda pageInfo ko sabai original values haru aauncha
                     page: data.length ? page + 1 : page,                 //original value lai replace gardincha
                 },
                 hasMore: !!data.length ,
+                hasFilter: false,
             });
         } catch(error) {
             const  errorMsg = error.response.data.message;
-
-            // this.toggleLoading(false);
-
+            // this.toggleLoading(false);s
             iziToast.error({
                 title: "Oh Snap!!",
-                message:errorMsg
+                message:errorMsg,
             });
         }
        
@@ -65,7 +83,7 @@ class BeerGrid extends Component {
 
        return(
            <div>
-               <Header />
+               <Header setSearchText={this.setSearchText} />
 
                {/* {isLoading ?  */}
                     {/* <Spinner /> : */}
@@ -80,8 +98,8 @@ class BeerGrid extends Component {
                             loader= {<Spinner />}
                         >
                             {beers.map(beer => (
-                            <Beer key={beer.id} info={beer}  />
-                        ))}
+                                <Beer key={beer.id} info={beer}  />
+                            ))}
                         </InfiniteScroll>
                    </div>
                </main>
