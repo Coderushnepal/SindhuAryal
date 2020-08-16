@@ -5,7 +5,7 @@ import { Router as BrowserRouter, Switch, Route} from 'react-router-dom';
 // import FourOhfour from '../components/fourOhFour';
 
 import Main from "./main";
-import Favourites from "./common/favourites";
+import Favourites from "../components/favourites";
 import history from "../utils/history";
 
 import * as routes from "../constants/routes"
