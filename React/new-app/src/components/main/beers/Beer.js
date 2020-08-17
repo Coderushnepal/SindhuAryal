@@ -9,7 +9,7 @@ class Beer extends Component {
         super(props);
 
         this.state = {
-            isFavorite: false,
+            // isFavorite: false,
             showModal: false,
         };
     }
@@ -44,7 +44,7 @@ class Beer extends Component {
             
             <div className="card">
                 <span className={`favourite ${beerIndex > -1 ? "active" : "" }`}>
-                    <i className="far fa-star" />
+                    <i className={`${beerIndex > -1 ? "fas" : "far"} fa-star`}  />
                 </span>
                 <div
                  className="card__imgcontainer" 
