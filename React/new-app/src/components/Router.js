@@ -8,13 +8,13 @@ import Main from "./main";
 import Favourites from "../components/favourites";
 import history from "../utils/history";
 
-import * as routes from "../constants/routes"
+import * as routes from "../constants/routes";
 
 const Router = () => (
     <BrowserRouter history = {history}>
-        <Switch>
+        <Switch>           
+            <Route exact path={routes.FAVOURITES} component={Favourites} />
             <Route path={routes.HOME} component={Main} /> 
-            <Route path={routes.FAVOURITES} component={Favourites} />
             {/* <Route path="*" component={FourOhfour} /> */}
         </Switch>
     </BrowserRouter>
