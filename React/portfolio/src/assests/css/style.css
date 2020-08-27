@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    width: 100% ;
+    margin : 0 auto;
+    padding : 0 20px;
+}
+
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+.clearfix:after {
+    content: " ";
+    display:table;
+    clear: both;
+}
+
+
+/* 1.Header */
+header {
+    margin: 20px 0px;
+    background-color: red;
+}
+
+/* 2.Navigation bar */
+nav {
+    display: none;
+}
+
+nav ul {
+    padding: 10px 0px;
+}
+nav ul li {
+    float: left;
+}
+nav ul li a {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    margin-right: 30px;
+}
+
+.login-btn {
+    background: linear-gradient(90deg, #3ae4df 0%, #7a88ff 104.29%);
+    border-radius: 5px;
+    border-color: #7a88ff;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+}
+
+/* 3.Hamberger menu */
+.hamburger {
+    display: block;
+}
+.hamburger div {
+    width: 25px;
+    height: 5px;
+    margin: 5px;
+    background-color: black;
+}
+
+@media (min-width: 994px) {
+    /* .container {
+        max-width: 994px;
+    } */
+
+    /* b.Display hidden/displayed */
+    nav,
+    .login-btn
+    {
+        display: none;
+    }
+
+} 
+
+@media (min-width: 1200px) {
+    body {
+        font-size: 16px;
+    }
+    .container {
+
+        max-width: 1140px;
+    }
+
+    /* b.Display hidden/displayed */
+    nav,
+    .login-btn {
+        display: block;
+    }
+
+    .hamburger {
+        display: none;
+    }
+}   
