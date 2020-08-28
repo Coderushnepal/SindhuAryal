@@ -18,7 +18,7 @@ const Router = () => (
             <Route exact path ={routes.SKILLS} component= {Skills}/>
             <Route exact path ={routes.BLOG} component= {Blog}/>
             <Route exact path ={routes.CONTACT} component= {Contact}/>
-            <Route path ={routes.HOME} component= {Main}/>
+            <Route exact path ={routes.HOME} component= {Main}/>
         </Switch>
     </BrowserRouter>
 )

@@ -1,10 +1,10 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import * as routes from '../constants/routes';
+import React, { Fragment } from 'react';
+
+import * as routes from "../constants/routes";
 import Header from "../components/common/header";
 import "../components/common/header/Header.css"
 
-const Main = () => (
+const HOME = () => (
     <div>
         <Header />
         <section className="site-hero">
@@ -22,4 +22,4 @@ const Main = () => (
 
 )
 
-export default Main;
+export default HOME;
