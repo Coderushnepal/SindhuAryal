@@ -1,5 +1,6 @@
-// import React from 'react';
+import React from 'react';
+import Header from "../components/common/header"
 
-const Main = () => "hello, Im from main";
+const Main = () => <Header />
 
 export default Main;

@@ -1,0 +1,105 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto';
+    font-size: 22px;
+}
+
+
+/* Clearing floats after the columns */
+
+.clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.header {
+    padding-top: 10px;
+}
+
+.header-container {
+    font-family: "Inconsolata", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 13px;
+    line-height: 40px;
+    border-style: solid;
+    border-color: #f7f4f4;
+    border-width: 0px 0px 1px 0px;
+    /* border-width:100%; */
+}
+
+ul {
+    list-style-type: none;
+    float: right;
+    padding: 10px;
+    margin-top: 10px
+}
+
+ul>li {
+    display: inline;
+    padding: 10px 20px;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo {
+    border: 2px solid black;
+    padding: 5px;
+}
+
+ul>li>a:hover {
+    color: black;
+    font-weight: bold;
+}
+
+ul:last-child {
+    padding-right: 100px;
+}
+
+
+
+/* To those devices whose viewport is 0-600px. */
+
+@media screen and (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
