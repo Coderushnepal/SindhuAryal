@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { dummyBlogData } from "../../constants/dummyData";
 
-// import Spinner from '../../components/common/Spinner';
+import Spinner from '../../components/common/Spinner';
 
 import BlogCard from "./BlogCard";
 import Header from "../../components/common/header";
@@ -24,13 +24,15 @@ class BlogGrid extends Component {
     //dummydata call
     fetchBlogs = async () => {
         try {
+            setTimeout(()=> {
                 this.setState({
                     blogs: dummyBlogData,
                     isLoading: false,
                 });
+            },1000);
 
             toast.success({
-                title: "yaa!!",
+                title: "Oh Yes!",
                 message:"Blogs successfully retreived."
             })
         } catch (error){
@@ -48,12 +50,13 @@ class BlogGrid extends Component {
 
     render() {
         const { isLoading } = this.state;
+        // console.log(isLoading);
         return (
             <div>
                  <Header />
-                 {/* {isLoading ? (
+                 {isLoading ? (
                      <Spinner />
-                 ) : ( */}
+                 ) : (
                      <main>
                         <div className="container"
                             ref={(r) => (this.scrollPartnerRef = r)}>
@@ -62,7 +65,7 @@ class BlogGrid extends Component {
                             ))}
                         </div>
                     </main>
-                 {/* )} */}
+                  )} 
                 <Footer />
             </div>
         );
