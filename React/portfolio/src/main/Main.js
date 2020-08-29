@@ -4,6 +4,7 @@ import * as routes from '../constants/routes';
 import Header from "../components/common/header";
 import Footer from "../components/common/footer";
 
+
 const Main = () => (
     <div>
         <Header />

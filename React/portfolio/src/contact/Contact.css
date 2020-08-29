@@ -38,6 +38,10 @@ button:focus  {
     outline: none;
 }
 
+.center{
+    text-align: center;
+}
+
 /* .errorBox {
 	font-size: 14px;
 	margin-bottom: 10px;

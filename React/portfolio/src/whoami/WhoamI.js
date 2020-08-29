@@ -5,7 +5,12 @@ import Footer from "../components/common/footer";
 const WhoamI = () =>(
      <div>
          <Header />
-         <h1>WHO AM I</h1>
+         WHOAMI
+         <div className="center">
+            <p>Sindhu Aryal</p>
+             <p>DOB : 1998 MAY 19</p>
+             <p>csitan@gmail.com</p>
+         </div>
 
          <Footer  />
      </div>

@@ -3,3 +3,4 @@ export const WHOAMI = "/whoamI";
 export const SKILLS = "/skills";
 export const BLOG = "/blog";
 export const CONTACT = "/contact";
+export const BLOGREVIEW = '/blogreview';

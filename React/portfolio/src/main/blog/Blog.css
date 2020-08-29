@@ -46,8 +46,16 @@
     outline: none;
 }
 
-.btn__readmore:hover {
+/* .btn__readmore:hover {
     color: #57d131;
     background-color: #fff;
     font-size: 16px;
+} */
+
+.rm{
+    color: #fff;
 }
+
+/* .rm:hover{
+    color: #57d131;
+} */
