@@ -2,11 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import * as routes from '../constants/routes';
 import Header from "../components/common/header";
-import "../components/common/header/Header.css"
+import Footer from "../components/common/footer";
 
 const Main = () => (
     <div>
         <Header />
+       
         <section className="site-hero">
             <div className="container clearfix">
                 <div className="row">
@@ -18,6 +19,8 @@ const Main = () => (
                 </div>
             </div>
         </section>
+        
+        <Footer />
     </div>
 
 )

@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Main from '../main';
 import WhoamI from '../whoami';
 import Skills from '../skills';
-import Blog from '../blog';
+import Blog from '../main/blog';
 import Contact from '../contact';
 
 import history from "../utils/history";

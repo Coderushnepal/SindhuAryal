@@ -1,0 +1,40 @@
+* {
+    margin:0px;
+    padding:0px;
+}
+.card {
+    width: 40%;
+    background-color:white; 
+    display: inline-block;
+    border-radius:10px;
+    margin:40px; 
+    box-shadow: 2px 2px 2px 10px  white;
+}
+
+.blog__image img {
+    width:100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.blog__title{
+    text-align: center;
+    padding:20px;
+}
+
+.blog__description {
+    text-align:center;
+    padding:4px;
+}
+
+.btn__readmore {
+    margin-top:30px;
+    margin-bottom:30px;
+    color:white;
+    background-color: teal;
+    border: 2px solid goldenrod;
+    font-size: 15px;
+    padding:7px;
+    border-radius:20px;
+    cursor: pointer;
+}

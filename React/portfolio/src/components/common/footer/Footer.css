@@ -1,0 +1,43 @@
+.container {
+    text-align: center;
+}
+
+.site-footer {
+    padding: 3em 0;
+}
+.social-box {
+    display: inline-block;
+    margin-right: 1em;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #b3bdc6;
+    border-radius: 50%;
+}
+
+.social-box:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+    /* Adjusts for spacing */
+}
+
+.social-box a {
+    color: #57d131;
+    margin: 0 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 22px;
+}
+
+.container div:last-child {
+    margin-right: 0;
+}
+
+.copyright-text {
+    color: #798a9a;
+}
