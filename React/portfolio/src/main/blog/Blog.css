@@ -28,13 +28,26 @@
 }
 
 .btn__readmore {
+    display: inline-block;
     margin-top:30px;
     margin-bottom:30px;
-    color:white;
-    background-color: teal;
-    border: 2px solid goldenrod;
+    color: #fff;
+    border: 1px solid transparent;
     font-size: 15px;
-    padding:7px;
-    border-radius:20px;
+    border-radius:100px;
     cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    text-decoration:none;
+    background-color: #57d131;
+    border-color: #57d131;
+    outline: none;
+}
+
+.btn__readmore:hover {
+    color: #57d131;
+    background-color: #fff;
+    font-size: 16px;
 }
