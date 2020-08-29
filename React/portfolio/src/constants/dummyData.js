@@ -4,7 +4,7 @@ export const dummyBlogData = [
         "blogTitle": `React Redux Tutorial for Beginners`,
         "postedOn": "Aug 9, 2019 Updated on Feb 09, 2020",
         "blogAuth" : "Bisikhaa Subedi",
-        "blogImage": "https://blog.addthiscdn.com/wp-content/uploads/2014/11/addthis-react-flux-javascript-scaling.png",
+        "blogImage": "https://i0.wp.com/blog.logrocket.com/wp-content/uploads/2018/09/react-redux-connect-tutorial.jpeg?fit=730%2C395&ssl=1",
         "blogText": `React is the ultimate library for front-end developers today. Simply put, you get better at development
                     when you learn React, and many organizations view these skills as essential. React developers should be
                     hungry to level-up or audit the skills essential to Facebook’s prominent JavaScript Library...`  
