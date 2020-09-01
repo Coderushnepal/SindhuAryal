@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const { response } = require('express');
+const { request } = require('http');
 
 const app = express();
 app.use(bodyParser.json());
@@ -161,6 +162,30 @@ app.delete('/users/:userId', (req, res, next)=> {
 //     });
 //   }
 // );
+
+/**PUT Method
+ * localhost:1234/users/2
+ */
+app.put('/users/:userId', (request, response, next) => {
+    const params = request.body;    //postman bata pathaune data
+    const userId = +request.params.userId;   //localhost:1234/users/2 i.e. requested params ko specific  field userId tanne
+
+    const usersJson = require('./users.json');  
+    const updatedJson = usersJson.map(user => {
+        if (user.id === userId){    //user.jsonma vako id ra requested id matched cha vane
+            return {
+                ...user,            //users.json ko data sabai same lera aauncha
+                ...params           //postman bata fetch gareko naya data le replace garcha
+            }
+        }
+        return user;        //if naya data chaina vane users.json ko data nai return garcha
+    })
+
+    fs.writeFileSync('./users.json', JSON.stringify(updatedJson, null, 2));
+    response.json({
+        message: "Updated Json with user id " + userId
+    })
+} )
 
 
 
