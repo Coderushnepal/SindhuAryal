@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const { response } = require('express');
 
 const app = express();
 app.use(bodyParser.json());
@@ -52,6 +53,8 @@ const function2 = (request, response, next) => {
 
 app.post("/", function1, function2);
 
+
+/**GET METHOD */
 //Output = localhost:1234/users
 app.get('/users', (request, response, next) => {
     const usersJson = require('./users.json');      //gets all data from users.json
@@ -76,6 +79,9 @@ app.get('/users/:userId', (request, response, next) => {
     response.json(requestedUser);
 });
 
+
+/**Post Method */
+//Output = localhost:1234/users
 app.post('/users', (request, response, next) => {
     const params = request.body;
     if (!params.firstName || !params.lastName || !params.phoneNumbers) {
@@ -112,6 +118,51 @@ app.post('/users', (request, response, next) => {
         }
     })
 })
+
+/**DELETE Method
+ * localhost:1234/users/3
+ */
+app.delete('/users/:userId', (req, res, next)=> {
+    const userId= +req.params.userId;
+    const usersJson = require('./users.json');
+
+    const updatedUserList = usersJson.filter(user => user.id !== userId);
+
+    const doesUserExist = usersJson.find((user) => user.id === userId);
+    if (!doesUserExist) {
+      response.json({
+        message: "Cannot find user with id " + userId,
+      })
+    }
+
+    fs.writeFileSync('./users.json', JSON.stringify(updatedUserList, null, 2));
+    response.json({
+        message:"Deleted user with userid" + userId,
+    })
+})
+
+// app.delete('/users/:userId', (request, response, next) =>
+//   //users.json ko data leyera id mileko data lai bhanda aaru lai array ma leyera with filter file ma write garchaam
+//   {
+//     const userId = +request.params.userId;
+//     //request.params.userId bata string aauchha teslai number banauna we use +
+    // const doesUserExist = usersJson.find((user) => user.id === userId);
+    // if (!doesUserExist) {
+    //   response.json({
+    //     message: "Cannot find user with id " + userId,
+    //   });
+//     }
+//     //The filter() method creates an array filled with all array elements that pass a test
+//     //updatedlist ma chain array nai aauchha jun array ma delete gareko userId wala data hudaina
+//     const updatedUsersList = usersJson.filter((user) => user.id !== userId);
+//     fs.writeFileSync(usersJsonPath, JSON.stringify(updatedUsersList, null, 2));
+//     response.json({
+//       message: "Deleted user with id" + userId,
+//     });
+//   }
+// );
+
+
 
 app.listen(1234, () => {
     console.log("Server running on https://127.0.0.1:1234");
