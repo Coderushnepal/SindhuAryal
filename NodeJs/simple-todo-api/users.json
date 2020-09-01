@@ -8,18 +8,6 @@
         "id": 9,
         "number": 123456,
         "type": "cell"
-      },
-      {
-        "id": 2,
-        "firstName": "Hi",
-        "lastName": "Nepal",
-        "phoneNumbers": []
-      },
-      {
-        "id": 3,
-        "firstName": "Bisikha",
-        "lastName": "Subedi",
-        "phoneNumbers": []
       }
     ]
   },
