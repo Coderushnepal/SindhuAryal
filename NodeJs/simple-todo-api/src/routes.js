@@ -2,6 +2,7 @@ import fs from 'fs';
 import {Router} from 'express'; // const express = require('express'); const router = express.Router();
 
 import { GET_USERS, GET_USERS_BY_ID, CREATE_USER, DELETE_USER, UPDATE_USER } from './constants/endpoints';
+import { validateUserCreation } from './schemas/user';
 
 const router = Router();
 const usersJsonPath = './data/users.json';
@@ -42,19 +43,19 @@ router.get(GET_USERS_BY_ID, (request, response, next) => {
 
 /**Post Method */
 //Output = localhost:1234/users
-router.post(CREATE_USER, (request, response, next) => {
+router.post(CREATE_USER, validateUserCreation, (request, response, next) => {
     const params = request.body;
-    if (!params.firstName || !params.lastName || !params.phoneNumbers) {
-        response.json({
-            message: "Insufficient number of arguments supplied."
-        })
-    }
+    // if (!params.firstName || !params.lastName || !params.phoneNumbers) {
+    //     response.json({
+    //         message: "Insufficient number of arguments supplied."
+    //     })
+    // }
     
-    if (!Array.isArray(params.phoneNumbers)) {
-        response.json({
-            message: "Phone number should be an array"
-        })
-    }
+    // if (!Array.isArray(params.phoneNumbers)) {
+    //     response.json({
+    //         message: "Phone number should be an array"
+    //     })
+    // }
 
     const usersJson = require(usersJsonPath);
     const maxId = usersJson.reduce((acc, cur) => {
