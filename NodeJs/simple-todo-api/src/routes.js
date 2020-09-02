@@ -1,6 +1,8 @@
 import fs from 'fs';
 import {Router} from 'express'; // const express = require('express'); const router = express.Router();
 
+import * as logger from './utils/logger';
+
 import { GET_USERS, GET_USERS_BY_ID, CREATE_USER, DELETE_USER, UPDATE_USER } from './constants/endpoints';
 import { validateUserCreation } from './schemas/user';
 
@@ -18,6 +20,7 @@ router.get("/", (request, response, next) => {
 /**GET METHOD */
 //Output = localhost:1234/users
 router.get(GET_USERS, (request, response, next) => {
+    logger.info('Fetching all users');
     const usersJson = require(usersJsonPath);      //gets all data from users.json
     response.json(usersJson);                       //prints every data obtained from users.json
 });
@@ -26,6 +29,7 @@ router.get(GET_USERS, (request, response, next) => {
 //Output = localhost:1234/users/:userId
 router.get(GET_USERS_BY_ID, (request, response, next) => {
     const userId = +request.params.userId;
+    logger.info(`Fetching user with id ${userId}`);
     // + : string lai number ma laijancha
     // for eg: localhost:1234/users/1 => userId = request.params.userId; userId = '1'
     // so  if userId = +request.params.userId;  then userId = 1
@@ -33,6 +37,8 @@ router.get(GET_USERS_BY_ID, (request, response, next) => {
     const usersJson = require(usersJsonPath);
     const requestedUser = usersJson.find(user => user.id === userId);
     if (!requestedUser) {
+        logger.error(`Cannot find user with id ${userId}`);
+       
         response.json({
             message: "Can't find user with id " + userId
         });

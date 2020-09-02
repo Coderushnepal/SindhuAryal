@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import * as logger from './src/utils/logger';
 
 import routes from './src/routes';
 
@@ -7,7 +8,8 @@ const loggingMiddleware = (req, res, next) => {
     const url = req.url;
     const method = req.method;
 
-    console.log(`[${new Date().toISOString()}] [${method}] ${url} \n`)
+    logger.info(`${method} ${url}`)
+    // console.log(`[${new Date().toISOString()}] [${method}] ${url} \n`)
     next();
 }
 
