@@ -1,0 +1,7 @@
+{"message":"GET /users/1","level":"info"}
+{"message":"GET /","level":"info"}
+{"message":"GET /users/","level":"info"}
+{"message":"Fetching all users","level":"info"}
+{"message":"GET /users/1","level":"info"}
+{"message":"Fetching user with id 1","level":"info"}
+{"message":"Cannot find user with id 1","level":"error"}

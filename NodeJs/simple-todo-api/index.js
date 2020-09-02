@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import * as logger from './src/utils/logger';
+import logger from './src/utils/logger';
 
 import routes from './src/routes';
 

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import {Router} from 'express'; // const express = require('express'); const router = express.Router();
 
-import * as logger from './utils/logger';
+import logger from './utils/logger';
 
 import { GET_USERS, GET_USERS_BY_ID, CREATE_USER, DELETE_USER, UPDATE_USER } from './constants/endpoints';
 import { validateUserCreation } from './schemas/user';
