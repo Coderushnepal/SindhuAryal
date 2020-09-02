@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import morgan from 'morgan';
 import logger from './src/utils/logger';
 
 import routes from './src/routes';
@@ -16,6 +17,7 @@ const loggingMiddleware = (req, res, next) => {
 const app = express();
 
 app.use(bodyParser.json());
+app.use(morgan('tiny'));
 app.use(loggingMiddleware);
 app.use(routes);
 
