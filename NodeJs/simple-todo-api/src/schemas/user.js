@@ -1,4 +1,4 @@
-import Joi, { number, func } from 'joi';
+import Joi from 'joi';
 
 export const CREATE_USER_SCHEMA = Joi.object().keys({
     firstName: Joi.string().max(20).required(),
@@ -15,9 +15,6 @@ export function validateUserCreation(req, res, next) {
         
         next();
     } catch (err) {
-        res.json({
-            message: "Invalid data",
-            details: err.details
-        });
+        next(err);
     }
 }
