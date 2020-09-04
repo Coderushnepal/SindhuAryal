@@ -2,6 +2,8 @@ import morgan from 'morgan';
 import express from 'express';
 import bodyParser from 'body-parser';
 
+import dotenv from 'dotenv';
+
 import logger from './src/utils/logger';
 import routes from './src/routes';
 import genericErrorHandler from './src/middlewares/genericErrorHandler';
@@ -25,6 +27,9 @@ app.use(loggingMiddleware);
 app.use(routes);
 app.use(genericErrorHandler);  // sabai error haru last ma aayera accumulate bhayera bascha
 
-app.listen(appPort, () => {
-    logger.info(`Listening on port ${appPort}`);
+dotenv.config();                //injects everything from .env file
+// console.log('env app_port',process.env.APP_PORT);
+
+app.listen(process.env.APP_PORT, () => {
+    logger.info(`Listening on port ${process.env.APP_PORT}`);
 });
