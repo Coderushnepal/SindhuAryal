@@ -1,6 +1,7 @@
-import connection from '../db';
 import logger from '../utils/logger';
 import usersJson from '../data/users';
+import * as user from '../models/User';
+import * as UserPhoneNumber from '../models/UserPhoneNumber';
 import NotFoundError from '../utils/NotFoundError';
 
 /**
@@ -8,7 +9,7 @@ import NotFoundError from '../utils/NotFoundError';
  */
 export async function getAllUsers() {
     logger.info('Fetching all users');
-    const data = await connection.select('*').from('users');
+    const data = await user.getAll();
 
     // console.log(data);
 
@@ -26,7 +27,7 @@ export async function getAllUsers() {
 export async function getUserById(userId) {
     logger.info(`Fetching user information with id ${userId}`);
   
-    const [result] = await connection.select('*').from('users').where('id', userId)
+    const result = await user.getById(userId);
   
     if(!result) {
       logger.error(`Cannot find the user with id ${userId}`);
@@ -45,25 +46,34 @@ export async function getUserById(userId) {
  * 
  * @param params 
  */
-export function createUser(params) {
-    // Finding the maximum id from existing JSON file
-    const maxId = usersJson.reduce((acc, cur) => {
-      return cur.id > acc ? cur.id : acc;
-    }, 0);
+export async function createUser(params) {
+  const { firstName, lastName, email, password, phoneNumbers} = params;
+  const userInsertData = await user.create({
+    firstName,
+    lastName,
+    email,
+    password
+  });
   
-    usersJson.push({
-      id: maxId + 1,
-      ...params
-    })
-  
+
+  const insertDataForPhoneNumbers = phoneNumbers.map(phone => ({
+    users_id: userInsertData.id,
+    phn_no: phone.number,
+    type: phone.type
+  }));
+
+  const phoneNumberInsertedData = await UserPhoneNumber.add(insertDataForPhoneNumbers);
+
+   
+
     return {
-      message: "New user added successfully",
-      data: {
-        id: maxId + 1,
-        ...params
-      }
+      data: params,
+      message: "New user added successfully"
     };
 }
+
+
+
 
 /**
  * Delete a user
