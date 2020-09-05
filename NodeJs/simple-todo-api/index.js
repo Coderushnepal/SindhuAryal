@@ -30,6 +30,6 @@ app.use(genericErrorHandler);  // sabai error haru last ma aayera accumulate bha
 dotenv.config();                //injects everything from .env file
 // console.log('env app_port',process.env.APP_PORT);
 
-app.listen(process.env.APP_PORT, () => {
-    logger.info(`Listening on port ${process.env.APP_PORT}`);
+app.listen(process.env.PORT, () => {
+    logger.info(`Listening on port ${process.env.PORT}`);
 });
