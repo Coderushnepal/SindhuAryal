@@ -26,22 +26,15 @@ export async function getAllUsers() {
   };
 }
 
+
 /**
  * Get user by id
  *
  * @param userId 
  */
 export async function getUserById(userId) {
-  logger.info(`Fetching user information with id ${userId}`);
+  const result = await verifyUserExistence(userId);
 
-  const result = await user.getById(userId);
-
-  if (!result) {
-    logger.error(`Cannot find the user with id ${userId}`);
-
-    throw new NotFoundError(`Cannot find the user with id ${userId}`);
-  }
-    
   const phoneNumbers = await UserPhoneNumber.getPhoneNumberByUserId(userId);
 
   return {
@@ -52,6 +45,7 @@ export async function getUserById(userId) {
     message: `Information about userId ${userId}`
   };
 }
+
 
 /**
  * Create a user
@@ -67,7 +61,6 @@ export async function createUser(params) {
     password
   });
 
-
   const insertDataForPhoneNumbers = phoneNumbers.map(phone => ({
     users_id: userInsertData.id,
     phn_no: phone.number,
@@ -76,8 +69,6 @@ export async function createUser(params) {
 
   const phoneNumberInsertedData = await UserPhoneNumber.add(insertDataForPhoneNumbers);
 
-
-
   return {
     data: params,
     message: "New user added successfully"
@@ -85,22 +76,12 @@ export async function createUser(params) {
 }
 
 
-
-
 /**
  * Delete a user
  * @param userId 
  */
 export async function deleteUser(userId) {
-  logger.info(`Fetching user information with id ${userId}`);
-
-  const result = await user.getById(userId);
-
-  if (!result) {
-    logger.error(`Cannot find the user with id ${userId}`);
-
-    throw new NotFoundError(`Cannot find the user with id ${userId}`);
-  }
+  await verifyUserExistence(userId);
 
   await user.remove(userId);
   
@@ -109,6 +90,7 @@ export async function deleteUser(userId) {
   };
 }
 
+
 /**
  * Update a user
  * 
@@ -116,15 +98,7 @@ export async function deleteUser(userId) {
  * @param params 
  */
 export async function updateUser(userId, params) {
-  logger.info(`Fetching user information with id ${userId}`);
-
-  const result = await user.getById(userId);
-
-  if (!result) {
-    logger.error(`Cannot find the user with id ${userId}`);
-
-    throw new NotFoundError(`Cannot find the user with id ${userId}`);
-  }
+  const result = await verifyUserExistence(userId);
 
   await user.update(userId, params);
 
@@ -135,4 +109,19 @@ export async function updateUser(userId, params) {
     },
     message: "Updated user with id " + userId
   };
+}
+
+
+async function verifyUserExistence(userId) {
+  logger.info(`Fetching user information with id ${userId}`);
+
+  const result = await user.getById(userId);
+
+  if(!result) {
+    logger.error(`Cannot find the user with id ${userId}`);
+
+    throw new NotFoundError(`Cannot find the user with id ${userId}`);
+  }
+
+  return result;
 }
