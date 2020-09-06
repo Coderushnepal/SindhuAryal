@@ -1,13 +1,13 @@
 import connection from '../db';
 import snakeize from 'snakeize';
 import camelize from 'camelize';
-
+import { FETCH_USERS_WITH_PHONE_NUMBERS } from '../db/queries/User'
 const table= 'users';
 
 export async function getAll(){
-    const result = await connection.select('*').from(table);
+    const { rows } = await connection.raw(FETCH_USERS_WITH_PHONE_NUMBERS);
 
-    return camelize(result);
+    return camelize(rows);
 }
 
 export async function getById(id){
