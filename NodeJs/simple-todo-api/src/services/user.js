@@ -41,9 +41,14 @@ export async function getUserById(userId) {
 
     throw new NotFoundError(`Cannot find the user with id ${userId}`);
   }
+    
+  const phoneNumbers = await UserPhoneNumber.getPhoneNumberByUserId(userId);
 
   return {
-    data: result,
+    data: {
+      ...result,
+      phoneNumbers
+    },
     message: `Information about userId ${userId}`
   };
 }
