@@ -91,19 +91,19 @@ export async function createUser(params) {
  * Delete a user
  * @param userId 
  */
-export function deleteUser(userId) {
+export async function deleteUser(userId) {
+  logger.info(`Fetching user information with id ${userId}`);
 
-  const updatedUserList = usersJson.filter(user => user.id !== userId);
+  const result = await user.getById(userId);
 
-  const doesUserExist = usersJson.find((user) => user.id === userId);
-  if (!doesUserExist) {
-    logger.error(`Cannot find user with id ${userId}`);
+  if (!result) {
+    logger.error(`Cannot find the user with id ${userId}`);
 
-    throw new Error(`Cannot find user with id ${userId}`);
+    throw new NotFoundError(`Cannot find the user with id ${userId}`);
   }
 
-  fs.writeFileSync(usersJsonPath, JSON.stringify(updatedUserList, null, 2));
-
+  await user.remove(userId);
+  
   return {
     message: `Deleted user with userid ${userId}`,
   };

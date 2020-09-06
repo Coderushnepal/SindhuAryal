@@ -21,3 +21,7 @@ export async function create(params){
   
     return camelize(data);
 }
+
+export function remove(userId) {
+    return connection(table).update({ 'is_active': false }).where({ id: userId });
+  }
