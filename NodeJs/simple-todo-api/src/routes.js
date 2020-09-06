@@ -3,7 +3,7 @@ import {Router} from 'express';                  // const express = require('exp
 
 import * as endpoints from './constants/endpoints';
 import * as userController from "./controllers/user";
-import { validateUserCreation } from './schemas/user';
+import { validateUserCreation , validateUserUpdate } from './schemas/user';
 
 const router = Router();
 
@@ -22,7 +22,7 @@ router.post(endpoints.CREATE_USER, validateUserCreation, userController.createUs
 
 router.delete(endpoints.DELETE_USER, userController.deleteUser);
 
-router.put(endpoints.UPDATE_USER, userController.updateUser);
+router.put(endpoints.UPDATE_USER, validateUserUpdate ,userController.updateUser);
 
 export default router;    
 

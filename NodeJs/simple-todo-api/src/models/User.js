@@ -2,6 +2,7 @@ import connection from '../db';
 import snakeize from 'snakeize';
 import camelize from 'camelize';
 import { FETCH_USERS_WITH_PHONE_NUMBERS } from '../db/queries/User'
+
 const table= 'users';
 
 export async function getAll(){
@@ -24,4 +25,8 @@ export async function create(params){
 
 export function remove(userId) {
     return connection(table).update({ 'is_active': false }).where({ id: userId });
-  }
+}
+
+export function update(userId, params){
+    return connection(table).update(snakeize(params)).where({ id:userId })
+}

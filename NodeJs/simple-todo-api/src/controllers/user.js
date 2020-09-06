@@ -65,15 +65,9 @@ export function deleteUser(req, res, next) {
  * @param next 
  */
 export function updateUser(req, res, next) {
-    const params = req.body;
-    const userId = +req.params.userId;
-
-    try {
-        const data = userService.updateUser(userId, params);
-
-        res.json(data);
-    } catch (err) {
-        next(err);
-    }
+    userService
+    .updateUser(+req.params.userId, req.body)
+    .then( data => res.json(data))
+    .catch( err =>  next(err));    
 }
 

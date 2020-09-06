@@ -115,21 +115,24 @@ export async function deleteUser(userId) {
  * @param userId 
  * @param params 
  */
-export function updateUser(userId, params) {
-  const updatedJson = usersJson.map(user => {
-    if (user.id === userId) {
-      return {
-        ...user,
-        ...params
-      };
-    }
+export async function updateUser(userId, params) {
+  logger.info(`Fetching user information with id ${userId}`);
 
-    return user;
-  });
+  const result = await user.getById(userId);
 
-  fs.writeFileSync(usersJsonPath, JSON.stringify(updatedJson, null, 2));
+  if (!result) {
+    logger.error(`Cannot find the user with id ${userId}`);
+
+    throw new NotFoundError(`Cannot find the user with id ${userId}`);
+  }
+
+  await user.update(userId, params);
 
   return {
+    data: {
+      ...result,
+      ...params
+    },
     message: "Updated user with id " + userId
   };
-} 
+}

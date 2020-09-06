@@ -11,6 +11,12 @@ export const CREATE_USER_SCHEMA = Joi.object().keys({
     }))
 });
 
+export const UPDATE_USER_SCHEMA = Joi.object().keys({
+    firstName: Joi.string().max(20),
+    lastName: Joi.string().max(20)
+});
+
+
 export function validateUserCreation(req, res, next) {
     try {
         Joi.assert(req.body, CREATE_USER_SCHEMA); 
@@ -20,3 +26,14 @@ export function validateUserCreation(req, res, next) {
         next(err);
     }
 }
+
+export function validateUserUpdate(req, res, next) {
+    try {
+        Joi.assert(req.body, UPDATE_USER_SCHEMA); 
+        
+        next();
+    } catch (err) {
+        next(err);
+    }
+}
+
