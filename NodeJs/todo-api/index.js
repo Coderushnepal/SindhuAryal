@@ -1,8 +1,7 @@
+import dotenv from 'dotenv';
 import morgan from 'morgan';
 import express from 'express';
 import bodyParser from 'body-parser';
-
-import dotenv from 'dotenv';
 
 import logger from './src/utils/logger';
 import routes from './src/routes';
