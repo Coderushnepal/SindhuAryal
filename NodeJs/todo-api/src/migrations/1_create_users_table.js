@@ -16,6 +16,7 @@ export function up(knex) {
 }
 
 
+
 /**
  * Drop 'users' table
  *
