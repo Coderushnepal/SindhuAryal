@@ -69,4 +69,5 @@ Beer.propTypes = {
 };
 
 
+
 export default Beer;

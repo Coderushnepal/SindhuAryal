@@ -1,5 +1,5 @@
 Create:
--defined set of balls at top of frame
+-defined set of balls at top of frame at each refresh.
 -Different shapes, height, width,color,position.
 
 Move:
@@ -10,7 +10,7 @@ Remove:
 -when sticked at top can't be deleted, moving balls can only be deleted.
 -removed automatically when it reaches bottom of window.
 
-
+Demo:
 https://coderushnepal.github.io/SagunKaranjit/index.html
 
 

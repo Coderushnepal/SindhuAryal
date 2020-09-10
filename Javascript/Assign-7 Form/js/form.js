@@ -26,7 +26,7 @@ var formAttributes = [
 		type: 'password',
 		name: 'Comfirmpassword',
 		placeholder: 'Re-enter your Password',
-		errorMsg: 'Password Required'
+		errorMsg: 'Password didnt match'
 	}
 ]   
 

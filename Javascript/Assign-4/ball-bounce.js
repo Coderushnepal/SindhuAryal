@@ -15,7 +15,7 @@ var interval;
 var direction = 1;
 var i = 0;
 
-//------ getting heoight of window and frame ------
+//------ getting height of window and frame ------
 const frameHeight = container.clientHeight;
 const frameWidth = container.clientWidth;
 const margin = window.innerHeight - frameHeight;

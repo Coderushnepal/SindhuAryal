@@ -21,7 +21,7 @@ function checkWin() {
 	var win = Array.from(dash).every((value) => {
 		return value.innerHTML ? true : false;
 	});
-	console.log(win);
+	// console.log(win);
 	if (win) {
 		popUpMsg.innerHTML = 'Congrats, You Won!';
         messageDisplay.style.display = 'block';

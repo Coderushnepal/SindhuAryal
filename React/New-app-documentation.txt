@@ -1,0 +1,12 @@
+Food Recommendation App
+
+User 
+- login to the system.
+- view the food items.
+-select their favorites.
+-ask to deliver, if available.
+
+
+Admin 
+- login
+-

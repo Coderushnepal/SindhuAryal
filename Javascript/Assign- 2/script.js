@@ -47,9 +47,11 @@ console.log(find('a'));
 
 console.log('\n\n Answer 3 \n\n');
 var final = result.reduce(function(acc,value,index){
+	// console.log(value);   value= result ko id, firstName and lastName aauncha
 	var storeId = value.id;
-	delete value.id;
-	acc[storeId] = value;
+	// console.log(storeId);       1,2,3,4,5...........
+	delete value.id;				//value.id delete garesi firstName and lastName matraa rahancha
+	acc[storeId] = value;			// storedId ma 1,2,3,4 and value ma firstName and lastName
 	return acc;
 },{});
 

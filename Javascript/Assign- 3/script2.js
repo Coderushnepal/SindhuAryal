@@ -1,6 +1,5 @@
 const btn = document.getElementById('btn');
 const box = document.getElementById('box');
-//console.log(box);
 
 const height = box.clientHeight;
 const width = box.clientWidth;
@@ -18,8 +17,8 @@ btn.addEventListener('click', function(){
     //  dot.style.backgroundColor = "blue";
     //  dot.style.position = "absolute";
 
-    dot.style.top = Math.random()* (height - dot.style.height) + 'px';
-    dot.style.left = Math.random()* (width - dot.style.width) + 'px';
+    dot.style.top = Math.random() * (height - 30) + 'px';
+    dot.style.left = Math.random() * (width - 30) + 'px';
     // console.log(dot.style.top);
 
     box.appendChild(dot);

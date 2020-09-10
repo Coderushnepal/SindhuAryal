@@ -83,7 +83,13 @@ function identicalFilter(arr) {
 	let identical = [];
 	let count = 0;
 	for (i = 0; i < arr.length; i++) {
-		let repeatation = new Set(arr[i]);
+		let repeatation = new Set(arr[i]);  
+		//set le jaile pani unique value matra store garcha, i.e. set ma kailay pani repetation hunna, 
+		//ani 999 set() ma gako wala case ma, i.e same number set ma gako case ma, sadhai set vitra 1ota matra 9 baschha
+		// vanaypachhi ta tyo set ko size ta sadhai 1 nai bhayo ni ta
+		// tara 545 number bhako case ma
+		// set ko size 2 hunchha, 5 ani 4 janchha set() vitra
+		// tei bhayera set() size 1 hune bhanayko repetation check bhayo
 		if (repeatation.size === 1) {
 			identical[count++] = arr[i];
 		}

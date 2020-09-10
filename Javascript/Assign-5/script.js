@@ -4,17 +4,17 @@ var box = document.getElementById('box');
     var direction = 1;
 btn.addEventListener('click', function(){
     var  dot = document.createElement('div');
-    // dot.classList.add('circle');
+    dot.classList.add('circle');
                 //or
-    dot.style.height = "25px";
-    dot.style.width = "25px";
-    dot.style.borderRadius = "50%";
-    dot.style.backgroundColor = "blue";
-    dot.style.position = "absolute";
+    // dot.style.height = "25px";
+    // dot.style.width = "25px";
+    // dot.style.borderRadius = "50%";
+    // dot.style.backgroundColor = "blue";
+    // dot.style.position = "absolute";
 
 
-    dot.style.top = Math.random() * (box.clientHeight - 25) + "px";
-    dot.style.left = Math.random() * (box.clientWidth - 25) + "px";
+    dot.style.top = Math.random() * (box.clientHeight - 30) + "px";
+    dot.style.left = Math.random() * (box.clientWidth - 30) + "px";
    
     var direction = 1;
 

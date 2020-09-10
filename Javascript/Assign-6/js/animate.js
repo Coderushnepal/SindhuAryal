@@ -39,7 +39,7 @@ function Animate() {
 	//removing ball when it reaches to the lowest height of frame
 	this.removeBall = function () {
 		setInterval(() => {
-		  this.balls.filter(function (item) {
+		  this.ball.filter(function (item) {
 			return !item.isDeleted;
 		  }).forEach(function (ball) {
 			var pos = ball.getPosition();
