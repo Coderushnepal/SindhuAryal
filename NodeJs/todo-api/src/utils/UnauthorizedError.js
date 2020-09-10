@@ -1,9 +1,9 @@
-class Unauthorized extends Error{
-    constructor(message){
-        super(message);
+class Unauthorized extends Error {
+  constructor(message) {
+    super(message);
 
-        this.message = message;
-    }
+    this.message = message;
+  }
 }
 
 export default Unauthorized;

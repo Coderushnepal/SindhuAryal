@@ -3,13 +3,13 @@ import winston, { format } from 'winston';
 const logger = winston.createLogger({
   transports: [
     new winston.transports.Console({
-      format: format.combine(format.colorize(), format.simple()),
+      format: format.combine(format.colorize(), format.simple())
     }),
     new winston.transports.File({ filename: 'combined.log' })
   ]
 });
 
-export default logger; 
+export default logger;
 
 // export function info(text) {
 //     console.log(`[${new Date().toISOString()}] [ INFO ] ${text} \n`);
