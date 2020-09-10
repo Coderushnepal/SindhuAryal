@@ -20,7 +20,7 @@ How to use?
     DB_NAME=users_db
     DB_CLIENT=pg
     ```
-6. Start the node server
+
 6. Run the migration script
     ```
     $ yarn migrate
