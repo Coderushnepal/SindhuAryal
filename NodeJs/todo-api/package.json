@@ -8,6 +8,7 @@
     "build": "rimraf dist && babel src/index.js --copy-files --out-dir dist",
     "migrate": "yarn knex migrate:latest --knexfile src/knexfile.js",
     "rollback": "yarn knex migrate:rollback --knexfile src/knexfile.js",
+    "prettify": "yarn prettier --write index.js src/",
     "lint": "eslint src index.js --fix"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "pg": "^8.3.3",
+    "prettier": "^2.1.1",
     "rimraf": "^3.0.2",
     "snakeize": "^0.1.0",
     "winston": "^3.3.3"
