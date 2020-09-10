@@ -39,4 +39,4 @@ export async function verifyUser(userId) {
 
     throw new NotFoundError(`Cannot find user with id ${userId}`);
   }
-} 
+}

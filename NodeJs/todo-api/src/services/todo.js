@@ -9,7 +9,7 @@ import NotFoundError from '../utils/NotFoundError';
  * @param userId
  */
 export async function getAllTodos(userId) {
-    await verifyUser(userId);
+  await verifyUser(userId);
 
   logger.info(`Getting list of todos for userId ${userId}`);
 
@@ -28,7 +28,7 @@ export async function getAllTodos(userId) {
  * @param todoId
  */
 export async function getTodoById(userId, todoId) {
-    await verifyUser(userId);
+  await verifyUser(userId);
 
   logger.info(`Getting todoId ${todoId} for userId ${userId}`);
 
