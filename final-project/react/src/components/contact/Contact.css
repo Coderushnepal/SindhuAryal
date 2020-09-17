@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contact-section {
+    padding: 25px;
+}
+
+form {
+    width: 50%;
+}
+
+label {
+    color: grey;
+    float: left;
+}
+
+input, textarea {
+    width: 100%;
+    padding:12px 10px;
+    margin-bottom: 10px;;
+}
+
+input:focus , textarea:focus{
+	outline: none;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color:   #57d131;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+button:focus  {
+    outline: none;
+}
+
+.center{
+    text-align: center;
+}
+
+/* .errorBox {
+	font-size: 14px;
+	margin-bottom: 10px;
+    color: #d8000c;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.valid {
+	border: 2px solid green;
+}
+
+.invalid {
+	border: 2px solid #d8000c;
+} */
