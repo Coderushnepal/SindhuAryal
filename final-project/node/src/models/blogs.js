@@ -4,11 +4,14 @@ import camelize from 'camelize';
 
 const table = "blogs";
 
-/**
- * Model to get all Blogs.
- */
 export async function getAll() {
-  const data = await connection.select("*").from(table);
+    const data = await connection.select("*").from(table);
 
-  return camelize(data);
+    return camelize(data);
+}
+
+export async function create(params) {
+    const [ data ] = await connection.insert(snakeize(params)).into(table).returning('*');
+
+    return camelize(data);
 }

@@ -4,3 +4,4 @@ export const ADMIN_SIGNUP = "/admin/signup";
 
 //blogs endpoints
 export const GET_ALL_BLOGS = "/blogs";
+export const CREATE_BLOG = "/blogs/:blogsId";

@@ -16,3 +16,19 @@ export async function getBlogs() {
         message: "List of Blogs received."
     };
 }
+
+/**
+ * Create a blog
+ * 
+ * @param params 
+ */
+export async function createBlogs(params) {
+    logger.info("Blogs created successfully");
+
+    const data = await blogsModel.create(params);
+
+    return {
+        data,
+        message: "Blogs created successfully."
+    }
+}

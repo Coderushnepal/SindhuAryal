@@ -12,3 +12,17 @@ export function getAllBlogs(req, res, next) {
     .then((data) => res.json(data))
     .catch((err) => next(err));
 }
+
+/**
+ * Controller to create blog
+ * 
+ * @param  req
+ * @param  res
+ * @param  next
+ */
+export function createBlogs(req, res, next) {
+  blogService
+    .createBlogs(req.body)
+    .then((data => res.json(data)))
+    .catch((err) => next(err));
+}
