@@ -21,9 +21,9 @@ export function createAdmin(req, res, next) {
  * @param res
  * @param next
  */
-// export function adminLogin(req, res, next) {
-//   adminService
-//     .adminLogin(req.body)
-//     .then((data) => res.json(data))
-//     .catch((err) => next(err));
-// }
+export function adminLogin(req, res, next) {
+  adminService
+    .adminLogin(req.body)
+    .then((data) => res.json(data))
+    .catch((err) => next(err));
+}

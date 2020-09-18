@@ -18,7 +18,6 @@ export function hash(password) {
  * @param {string} hashedPassword
  * @returns {boolean}
  */
-
 export function compare(password, hashedPassword) {
   return bcrypt.compareSync(password, hashedPassword);
 }

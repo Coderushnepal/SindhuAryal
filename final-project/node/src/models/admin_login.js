@@ -13,8 +13,9 @@ export async function create(params) {
   return camelize(data);
 }
 
-// export async function getAdminCredentials(data) {
-//   const data = await connection.select("*").from(table);
-//   console.log("Is credential here?", data);
-//   return data ? camelize(data) : null;
-// }
+export async function getAdminCredentials(data) {
+  console.log("function ma pass garda aako data", data)
+  const [dbData] = await connection.select("*").from(table);
+
+  return dbData ? camelize(dbData) : null;
+}

@@ -1,9 +1,7 @@
-import { hash } from '../utils/crypt';
+import logger from '../utils/logger';
+import { hash, compare } from '../utils/crypt';
+import BadRequestError from '../utils/BadRequestError';
 import * as adminLoginModel from '../models/admin_login';
-// import { generateToken } from '../utils/jwt';
-// import logger from '../utils/logger';
-// import BadRequestError from '../utils/BadRequestError';
-// import * as adminSession from  '../models/adminSession';
 
 /**
  * Create an admin
@@ -29,36 +27,30 @@ export async function createAdmin(params) {
  *
  * @param params
  */
-// export async function adminLogin(params) {
-//     const { email, password } = params;
-//     const admin = await adminLoginModel.getAdminCredentials(data);
+export async function adminLogin(params) {
+    const { email, password } = params;         //from postman that is to be compared with db
+    const admin = await adminLoginModel.getAdminCredentials( {
+        email,
+        password
+    } );
 
-//     if (!admin) {
-//         logger.error("Invalid Login Credentials");
+    if (!admin) {
+        logger.error("Invalid Login Credentials");
 
-//         throw new BadRequestError("Invalid login credentials");
-//     }
+        throw new BadRequestError("Invalid login credentials");
+    }
 
-//     const isPasswordValid = compare(password, admin.password);
-//     if (!isPasswordValid) {
-//         logger.error("Invalid login credentials");
+    const isPasswordValid = compare(password, admin.password);  //from postman
+    if (!isPasswordValid) {
+        logger.error("Invalid login credentials");
 
-//         throw new BadRequestError("Invalid login credentials");
-//     }
+        throw new BadRequestError("Invalid login credentials");
+    }
 
-//     const token = generateToken({
-//         email: admin.email,
-//     });
-
-//     await adminSession.saveToken(admin.email, token);
-
-//     admin.password = undefined;
-
-//     return {
-//         data: {
-//             admin,
-//             token,
-//         },
-//         message: "Logged In Successfully!!",
-//     };
-// }
+    return {
+        data: {
+            admin
+        },
+        message: "Logged In Successfully!!",
+    };
+}
