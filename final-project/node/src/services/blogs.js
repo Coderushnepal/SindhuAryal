@@ -65,3 +65,18 @@ export async function updateBlogs(blogsId, params) {
         message: `Updated blog with id ${blogsId}`
     }
 }
+
+/**
+ * Delete blog
+ * 
+ * @param  blogsId 
+ */
+export async function removeBlog(blogsId) {
+    logger.info(`Deleted blog with id ${blogsId}`);
+
+    await blogsModel.remove(blogsId);
+
+    return{
+        message: `Deleted blog with id ${blogsId}`
+    }
+}

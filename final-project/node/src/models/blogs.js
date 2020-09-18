@@ -30,3 +30,7 @@ export async function update(blogsId, params){
 
     return camelize(updatedData);
 }
+
+export async function remove(blogsId) {
+    await connection(table).update({is_active:false}).where({ id: blogsId });
+}

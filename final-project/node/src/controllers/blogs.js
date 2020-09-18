@@ -55,3 +55,17 @@ export function updateBlog(req, res, next) {
   .then((data )=> res.json(data))
   .catch((err) => next(err));
 }
+
+/**
+ * Controller to delete blog
+ * 
+ * @param req 
+ * @param res 
+ * @param next 
+ */
+export function deleteBlog(req, res, next) {
+  blogService
+  .removeBlog(+req.params.blogsId)
+  .then((data )=> res.json(data))
+  .catch((err) => next(err));
+}

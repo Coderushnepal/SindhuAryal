@@ -6,4 +6,5 @@ export const ADMIN_SIGNUP = "/admin/signup";
 export const GET_ALL_BLOGS = "/blogs";
 export const CREATE_BLOG = "/blogs/:blogsId";
 export const UPDATE_BLOGS = "/blogs/:blogsId";
+export const DELETE_BLOGS = "/blogs/:blogsId";
 export const GET_ALL_BLOGS_BY_ID = "/blogs/:blogsId";
