@@ -2,7 +2,23 @@ import logger from '../utils/logger';
 import * as blogsModel from '../models/blogs'
 
 /**
- * Get all blogs.
+ * Create a blog
+ * 
+ * @param params 
+ */
+export async function createBlogs(params) {
+    logger.info("Blogs created successfully");
+    
+    const data = await blogsModel.create(params);
+    
+    return {
+        data,
+        message: "Blogs created successfully."
+    }
+}
+
+/**
+ * Get all blogs
  *
  * @param params
  */
@@ -18,17 +34,18 @@ export async function getBlogs() {
 }
 
 /**
- * Create a blog
+ * Get blogs by id
  * 
- * @param params 
+ * @param blogsId 
  */
-export async function createBlogs(params) {
-    logger.info("Blogs created successfully");
+export async function getBlogsById(blogsId) {
+    logger.info(`Fetching blog with id ${blogsId}`);
 
-    const data = await blogsModel.create(params);
+    const data = await blogsModel.getById(blogsId);
 
     return {
         data,
-        message: "Blogs created successfully."
-    }
+        message: `Blog with id ${blogsId} received.`
+    };
 }
+

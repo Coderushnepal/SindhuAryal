@@ -21,7 +21,8 @@ router.post( endpoints.ADMIN_LOGIN, validateAdminLogin, adminController.adminLog
 router.post( endpoints.ADMIN_SIGNUP, validateAdminCreation, adminController.createAdmin );
 
 //blogs
-router.post(endpoints.CREATE_BLOG, validateBlogCreation, blogsController.createBlogs);
 router.get(endpoints.GET_ALL_BLOGS, blogsController.getAllBlogs);
+router.get(endpoints.GET_ALL_BLOGS_BY_ID, blogsController.getBlogsByID);
+router.post(endpoints.CREATE_BLOG, validateBlogCreation, blogsController.createBlogs);
 
 export default router;
