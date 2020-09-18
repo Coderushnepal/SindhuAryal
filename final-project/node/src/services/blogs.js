@@ -1,5 +1,5 @@
 import logger from '../utils/logger';
-import * as blogsModel from '../models/blogs'
+import * as blogsModel from '../models/blogs';
 
 /**
  * Create a blog
@@ -49,3 +49,19 @@ export async function getBlogsById(blogsId) {
     };
 }
 
+/**
+ * Update blog
+ * 
+ * @param blogsId 
+ * @param params 
+ */
+export async function updateBlogs(blogsId, params) {
+    logger.info(`Updated blog with id ${blogsId}`);
+
+    const data = await blogsModel.update(blogsId, params);
+
+    return{
+        data,
+        message: `Updated blog with id ${blogsId}`
+    }
+}

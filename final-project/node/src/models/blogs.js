@@ -21,3 +21,12 @@ export async function getById(id) {
 
     return data ? camelize(data) : null;
 }
+
+export async function update(blogsId, params){
+    const [updatedData] = await connection(table)
+    .update(snakeize(params))
+    .where({id : blogsId})
+    .returning('*');
+
+    return camelize(updatedData);
+}

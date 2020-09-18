@@ -41,3 +41,17 @@ export function getBlogsByID(req, res, next) {
     .then((data) => res.json(data))
     .catch((err) => next(err));
 }
+
+/**
+ * Controller to update blog
+ * 
+ * @param req 
+ * @param res 
+ * @param next 
+ */
+export function updateBlog(req, res, next) {
+  blogService
+  .updateBlogs(+req.params.blogsId, req.body)
+  .then((data )=> res.json(data))
+  .catch((err) => next(err));
+}
