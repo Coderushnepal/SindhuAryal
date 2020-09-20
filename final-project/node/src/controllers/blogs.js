@@ -2,7 +2,7 @@ import * as blogService from '../services/blogs';
 
 /**
  * Controller to create blog
- * 
+ *
  * @param  req
  * @param  res
  * @param  next
@@ -10,8 +10,8 @@ import * as blogService from '../services/blogs';
 export function createBlogs(req, res, next) {
   blogService
     .createBlogs(req.body)
-    .then((data => res.json(data)))
-    .catch((err) => next(err));
+    .then(data => res.json(data))
+    .catch(err => next(err));
 }
 
 /**
@@ -24,8 +24,8 @@ export function createBlogs(req, res, next) {
 export function getAllBlogs(req, res, next) {
   blogService
     .getBlogs()
-    .then((data) => res.json(data))
-    .catch((err) => next(err));
+    .then(data => res.json(data))
+    .catch(err => next(err));
 }
 
 /**
@@ -38,34 +38,34 @@ export function getAllBlogs(req, res, next) {
 export function getBlogsByID(req, res, next) {
   blogService
     .getBlogsById(+req.params.blogsId)
-    .then((data) => res.json(data))
-    .catch((err) => next(err));
+    .then(data => res.json(data))
+    .catch(err => next(err));
 }
 
 /**
  * Controller to update blog
- * 
- * @param req 
- * @param res 
- * @param next 
+ *
+ * @param req
+ * @param res
+ * @param next
  */
 export function updateBlog(req, res, next) {
   blogService
-  .updateBlogs(+req.params.blogsId, req.body)
-  .then((data )=> res.json(data))
-  .catch((err) => next(err));
+    .updateBlogs(+req.params.blogsId, req.body)
+    .then(data => res.json(data))
+    .catch(err => next(err));
 }
 
 /**
  * Controller to delete blog
- * 
- * @param req 
- * @param res 
- * @param next 
+ *
+ * @param req
+ * @param res
+ * @param next
  */
 export function deleteBlog(req, res, next) {
   blogService
-  .removeBlog(+req.params.blogsId)
-  .then((data )=> res.json(data))
-  .catch((err) => next(err));
+    .removeBlog(+req.params.blogsId)
+    .then(data => res.json(data))
+    .catch(err => next(err));
 }

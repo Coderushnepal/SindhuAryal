@@ -4,14 +4,14 @@
  * @param  knex
  */
 export function up(knex) {
-    return knex.schema.createTable('admin_login', table => {
-        table.string('email', 100).notNull().unique();
-        table.string('password', 200).notNull();
-    });
+  return knex.schema.createTable('admin_login', table => {
+    table.string('email', 100).notNull().unique();
+    table.string('password', 200).notNull();
+  });
 }
-    
+
 /**
-  * Drop 'admin_login' table.
+ * Drop 'admin_login' table.
  *
  * @param  knex
  */

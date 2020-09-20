@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import iziToast from 'izitoast';
 import './Admin.css';
+import axios from 'axios';
 
 class Admin extends Component { 
     constructor(props){
@@ -13,6 +14,22 @@ class Admin extends Component {
                 password: ""
             }
         };
+    }
+
+    fetchData = () => {
+        axios({
+          method: "POST",
+          url: "http://localhost:1234/admin",
+          data: {
+            email: this.state.formData.email,
+            password: this.state.formData.password,
+          },
+        })
+        .then((res) => {
+            console.log(res);
+        }).catch((err) => {
+        console.log(err);
+        });
     }
 
     handleChange = (event) => {
@@ -66,7 +83,14 @@ class Admin extends Component {
 
                                 <span className="txt"> Email </span>
                                 <div className="wrap-input">
-                                    <input onChange={this.handleChange} className="input" type="email" id="email" name="email"  value={email} required />
+                                    <input onChange={this.handleChange} 
+                                        className="input" 
+                                        type="email" 
+                                        id="email" 
+                                        name="email"  
+                                        value={email} 
+                                        required 
+                                    />
 					            </div>
 
                                 <span className="txt"> Password </span>
@@ -76,11 +100,21 @@ class Admin extends Component {
                                             //  onClick="myFunction()"
                                         ></i>
                                     </span>
-                                    <input onChange={this.handleChange} className="input" type="password" name="password" id="myInput" value={password}/>
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className="input" 
+                                        type="password" 
+                                        name="password" 
+                                        id="myInput" 
+                                        value={password}
+                                    />
 					            </div>
 
                                 <div className="container-login-form-btn">
-                                        <button type="submit" className="login-form-btn"> 
+                                        <button type="submit" 
+                                            className="login-form-btn"
+                                            onClick={this.fetchData}
+                                        > 
                                             Login
                                         </button>
                                 </div>

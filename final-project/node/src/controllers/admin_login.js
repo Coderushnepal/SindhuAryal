@@ -10,8 +10,8 @@ import * as adminService from '../services/admin_login';
 export function createAdmin(req, res, next) {
   adminService
     .createAdmin(req.body)
-    .then((data) => res.json(data))
-    .catch((err) => next(err));
+    .then(data => res.json(data))
+    .catch(err => next(err));
 }
 
 /**
@@ -24,6 +24,6 @@ export function createAdmin(req, res, next) {
 export function adminLogin(req, res, next) {
   adminService
     .adminLogin(req.body)
-    .then((data) => res.json(data))
-    .catch((err) => next(err));
+    .then(data => res.json(data))
+    .catch(err => next(err));
 }

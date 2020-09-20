@@ -17,8 +17,8 @@ router.get('/', (req, res, next) => {
 });
 
 // login
-router.post( endpoints.ADMIN_LOGIN, validateAdminLogin, adminController.adminLogin );
-router.post( endpoints.ADMIN_SIGNUP, validateAdminCreation, adminController.createAdmin );
+router.post(endpoints.ADMIN_LOGIN, validateAdminLogin, adminController.adminLogin);
+router.post(endpoints.ADMIN_SIGNUP, validateAdminCreation, adminController.createAdmin);
 
 //blogs
 router.put(endpoints.UPDATE_BLOGS, blogsController.updateBlog);

@@ -13,9 +13,9 @@ export function up(knex) {
     table.timestamp('created_at').defaultTo(knex.raw('now()'));
   });
 }
-  
+
 /**
-  * Drop 'blogs' table.
+ * Drop 'blogs' table.
  *
  * @param  knex
  */

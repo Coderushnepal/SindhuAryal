@@ -7,14 +7,13 @@ import routes from './routes';
 import logger from './utils/logger';
 
 const loggingMiddleware = (req, res, next) => {
-   const url = req.url;
-   const method = req.method;
+  const url = req.url;
+  const method = req.method;
 
-   logger.info(`${method} ${url}`);
-   
-   next();
-}
+  logger.info(`${method} ${url}`);
 
+  next();
+};
 
 const app = express();
 
@@ -26,5 +25,5 @@ app.use(routes);
 dotenv.config();
 
 app.listen(process.env.PORT, () => {
-   logger.info(`Listening on port ${process.env.PORT}`);
-});  
+  logger.info(`Listening on port ${process.env.PORT}`);
+});
