@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import iziToast from 'izitoast';
 import "./SinglePage.css";
 
 import Header from '../../common/header';
@@ -33,25 +32,13 @@ class SinglePage extends Component {
         });
     }
 
-    deleteBlogs(id) {
-        if(window.confirm(`Are you sure to delete blog ${id} ?`))
-        fetch('http://localhost:1234/blogs/'+id,{
-            method:'DELETE',
-        });
-
-        iziToast.success({
-            title: 'Blog deleted successfully.'
-        });
-        this.props.history.push('/blogs');
-    }
-
     componentDidMount() {
         this.fetchFullBlog();
     }    
 
     render() {   
         // console.log(this.state.blog);
-        const{ title, image, desc,id } = this.state.blog;
+        const{ title, image, desc } = this.state.blog;
         // console.log(desc);
         
         const token= localStorage.getItem('Token');
@@ -65,7 +52,7 @@ class SinglePage extends Component {
                         { token ?
                             <div className="buttons">
                                 <button className="btn btn-info"> Update </button>
-                                <button className="btn btn-danger" onClick= {() => this.deleteBlogs(id)}> Delete </button> 
+                                <button className="btn btn-danger"> Delete </button> 
                             </div>
                             :null 
                         }

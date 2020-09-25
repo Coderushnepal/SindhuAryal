@@ -22,7 +22,7 @@ class Dashboard extends Component {
     fetchData = () => {
         axios({
             method: "POST",
-            url: "http://localhost:1234/blogs",
+            url: "https://sindhu-final-project.herokuapp.com/blogs",
             data: {
                 title: this.state.formData.title,
                 desc: this.state.formData.desc,

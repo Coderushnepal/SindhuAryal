@@ -20,7 +20,7 @@ class BlogGrid extends Component {
     scrollPartnerRef = null;
 
     componentDidMount() {
-        axios.get(`http://localhost:1234/blogs`)
+        axios.get(`https://sindhu-final-project.herokuapp.com/blogs`)
         .then(res=> {
             // console.log(res.data.data);
             const blogs = res.data.data;
