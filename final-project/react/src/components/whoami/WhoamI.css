@@ -1,0 +1,87 @@
+.txt-size {
+    font-size: 10px;
+}
+.primary {
+    margin: 50px 50px;
+}
+
+.col-md-12{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 992px) {
+    .col-md-12 {
+        float: left;
+    }
+}
+
+main, article {
+    display: block;
+}
+
+h1, h2{
+    font-family: "Cabin", Helvetica Neue, sans-serif;
+    font-weight: 400;
+}
+
+h1.single-title {
+    margin-top: 0;
+    color: #000;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.colored-line-left {
+    background:  #57d131;
+    float: left;
+    display: block;
+    width: 80px;
+    height: 3px;
+}
+
+.entry-content, 
+.entry-content p,
+.entry-content span {
+    color: #666;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.content-page {
+    margin-top: 15px;
+}
+
+.ta-center {
+    text-align: center;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+.text-decor{
+    text-decoration: underline;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.ta-left{
+    text-align: left;
+}
+
+a:hover {
+    background-color: transparent;
+}
+
+a.color-text {
+    font-size: 17px;
+    color: #57d131;
+}

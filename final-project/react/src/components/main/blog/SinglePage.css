@@ -1,0 +1,81 @@
+.blog_wrap {
+    background-color: transparent;
+    margin: 0px;
+}
+
+div.polaroid {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin:  25px;
+    padding: 30px;;
+}
+
+.blog_title {
+    text-align:center;
+    padding: 40px;;
+}
+
+.single-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.con{
+    text-align: center;
+    padding: 10px 20px;
+}
+
+i.fas.fa-heart,
+i.far.fa-comment,
+i.far.fa-paper-plane,
+i.far.fa-bookmark {
+    font-size: 45px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.red:hover{
+    color: red;
+}
+
+.icons_wrapper{
+    width:100%;
+    cursor: pointer;
+}
+
+.icons_left{
+    float: left;
+    width: 90%;
+}
+
+.icons_right{
+    float:right;
+    width:10%;
+}
+
+.buttons {
+    float:right;
+}
+
+.btn-info {
+    color: #40a4f1;
+    border-color: #40a4f1;
+    margin: 5px;
+    background-color: transparent;
+}
+
+.btn-danger  {
+    color:red;
+    border-color: red;
+    background-color: transparent;
+}
+
+.btn-info:hover {
+    background-color: #40a4f1;
+    color: white;
+}
+
+.btn-danger:hover{
+    background-color:red;
+    color:white;
+}

@@ -43,6 +43,8 @@ export async function getBlogsById(blogsId) {
 
   const data = await blogsModel.getById(blogsId);
 
+  console.log(data);
+
   return {
     data,
     message: `Blog with id ${blogsId} received.`

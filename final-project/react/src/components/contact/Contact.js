@@ -70,7 +70,7 @@ class Contact extends Component {
 
                 <div className="contact-section">
                     <div className="container">
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.handleSubmit} className="contact-form">
                             <label>Full Name</label><br />
                             <input onChange={this.handleChange} type="text" id="name" name="name" value={name} required/><br />
                             

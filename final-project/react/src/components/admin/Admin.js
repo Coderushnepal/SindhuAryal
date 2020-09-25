@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-
 import iziToast from 'izitoast';
+
 import './Admin.css';
-import axios from 'axios';
+import { login } from '../../services/loginService';
 
 class Admin extends Component { 
     constructor(props){
@@ -16,20 +16,18 @@ class Admin extends Component {
         };
     }
 
-    fetchData = () => {
-        axios({
-          method: "POST",
-          url: "http://localhost:1234/admin",
-          data: {
-            email: this.state.formData.email,
-            password: this.state.formData.password,
-          },
-        })
-        .then((res) => {
-            console.log(res);
-        }).catch((err) => {
-        console.log(err);
-        });
+    fetchData = async() => {
+        try{
+            const loginCredentials = await login(this.state.formData.email, this.state.formData.password);
+            console.log(loginCredentials);
+            localStorage.setItem('Token', loginCredentials.token);
+            this.props.history.push('/dashboard');
+        } catch (err) {
+            iziToast.error({
+                title:"login failed",
+                message: "Invalid Credentials."
+            })
+        }
     }
 
     handleChange = (event) => {
@@ -42,49 +40,26 @@ class Admin extends Component {
     };
 
     handleSubmit = (event) => {
-        event.preventDefault();
-
-        const { email, password } = this.state.formData;
-    
-        if( !email || !password ){
-            let fieldName;
-            if (!email) {
-                fieldName = "Email";
-            } else {
-                fieldName = "Password"
-            }
-    
-            iziToast.error({
-                title: 'Sorry!',
-                message: `Can you please fill up the ${fieldName} field`,
-            });
-        } else {
-            setTimeout(()=> {
-                iziToast.success({
-                    title: 'Logged in!',
-                    message: `Redirecting to Dashboard.`,
-                });
-                this.props.history.push('/dashboard');
-            }, 100);
-        }  
+        event.preventDefault(); 
     };
+
 
     render(){
         const { email, password } = this.state.formData;
+
         return(
             <Fragment>
                  <div className="login_wrapper">
                     <div className="container-login">
                         <div className="wrap-login">
-                        <button>Sign Up</button>
-                        <button>Login</button>
                             <form onSubmit={this.handleSubmit} className="login-form" >
                                 <span className="login-form-title"> Admin Login </span>
 
                                 <span className="txt"> Email </span>
                                 <div className="wrap-input">
-                                    <input onChange={this.handleChange} 
-                                        className="input" 
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className="input-value" 
                                         type="email" 
                                         id="email" 
                                         name="email"  
@@ -95,14 +70,9 @@ class Admin extends Component {
 
                                 <span className="txt"> Password </span>
                                 <div className="wrap-input">
-                                    <span className="btn-show-pass">
-                                        <i id="eyeIcon" className="fa fa-eye" 
-                                            //  onClick="myFunction()"
-                                        ></i>
-                                    </span>
                                     <input 
                                         onChange={this.handleChange} 
-                                        className="input" 
+                                        className="input-value" 
                                         type="password" 
                                         name="password" 
                                         id="myInput" 
@@ -115,7 +85,7 @@ class Admin extends Component {
                                             className="login-form-btn"
                                             onClick={this.fetchData}
                                         > 
-                                            Login
+                                            LOG IN
                                         </button>
                                 </div>
 				            </form>

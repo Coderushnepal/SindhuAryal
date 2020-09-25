@@ -1,0 +1,33 @@
+.skills-section{
+    margin: 30px;
+    padding: 30px;;
+}
+
+.skills-wrap {
+    width: 100%;
+    padding: 10px;
+    margin:10px;
+}
+
+.skills-left{
+    width: 20%;
+    float: left;
+}
+
+.skills-right {
+    float: right;
+    width: 80%;
+    background-color: #ddd;
+}
+  
+.skills {
+    text-align: right;
+    color: white;
+    background-color: #2196F3;
+}
+
+.html {width: 90%;}
+.css {width: 80%; }
+.js {width: 65%; }
+.php {width: 60%; }
+.react {width: 45%; }

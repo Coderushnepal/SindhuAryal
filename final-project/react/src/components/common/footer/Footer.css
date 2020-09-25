@@ -1,9 +1,11 @@
 .container {
     text-align: center;
+    
 }
 
 .site-footer {
     padding: 3em 0;
+    background-color: #f7f8fa;;
 }
 .social-box {
     display: inline-block;

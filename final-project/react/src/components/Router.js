@@ -9,7 +9,7 @@ import Blog from './main/blog';
 import Contact from './contact';
 import Dashboard from './dashboard';
 import PrivateRoute from './PrivateRoute';
-import BlogReview from './main/blog/BlogReview';
+import SinglePage from './main/blog/SinglePage';
 
 import history from "../utils/history";
 import * as routes from "../constants/routes";
@@ -23,8 +23,10 @@ const Router = () => (
             <Route exact path ={routes.SKILLS} component= {Skills}/>
             <Route exact path ={routes.WHOAMI} component={WhoamI}/>
             <Route exact path ={routes.CONTACT} component= {Contact}/>
-            <Route exact path ={routes.DASHBOARD} component={Dashboard} />
-            <PrivateRoute exact path={routes.BLOGREVIEW} component={BlogReview} />
+            <PrivateRoute exact path={routes.DASHBOARD} component={Dashboard} />
+            <Route exact path = {routes.SINGLEPAGE} component={SinglePage} />
+            
+            {/* <Route exact path ={routes.DASHBOARD} component={Dashboard} /> */}
         </Switch>
     </BrowserRouter>
 )

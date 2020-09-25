@@ -2,8 +2,9 @@ import axios from 'axios';
 import React, { Component } from 'react';
 
 import BlogCard from "./BlogCard";
-import Header from "../../common/header";
+import Header from '../../common/header';
 import Footer from "../../common/footer";
+import Spinner from '../../common/Spinner';
 
 class BlogGrid extends Component {
     constructor(props) {
@@ -23,22 +24,29 @@ class BlogGrid extends Component {
         .then(res=> {
             // console.log(res.data.data);
             const blogs = res.data.data;
-            this.setState({ blogs });
+            this.setState({ blogs , isLoading:false   });
         });
     }
 
     render() {
+        const {isLoading} = this.state;
         return (
             <div>
                  <Header />
-                     <main>
-                        <div className="container"
-                            ref={(r) => (this.scrollPartnerRef = r)}>
-                            {this.state.blogs.map(blog => (
-                                <BlogCard key={blog.id} info={blog} />
-                            ))}
-                        </div>
-                    </main>
+                    {isLoading ? (
+                        <Spinner />
+                    ) : (
+
+                        <main>
+                            <div className="container"
+                                ref={(r) => (this.scrollPartnerRef = r)}>
+                                {this.state.blogs.map(blog => (
+                                    <BlogCard key={blog.id} info={blog} id={blog.id} />
+                            )   )}
+                            </div>
+                        </main>
+                    )
+                    }
                 <Footer />
             </div>
         );

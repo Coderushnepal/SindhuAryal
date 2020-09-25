@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 export const CREATE_ADMIN_SCHEMA = Joi.object().keys({
-  email: Joi.string().max(100).required(),
+  email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
   password: Joi.string().min(8).max(30).required()
 });
 
@@ -15,7 +15,7 @@ export function validateAdminCreation(req, res, next) {
 }
 
 export const CREATE_ADMIN_LOGIN_SCHEMA = Joi.object().keys({
-  email: Joi.string().max(100).required(),
+  email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
   password: Joi.string().min(8).max(30).required()
 });
 

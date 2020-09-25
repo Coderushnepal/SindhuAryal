@@ -5,8 +5,13 @@
 }
 
 body {
-    /* font-family: 'Roboto'; */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", Roboto, "Helvetica Neue", 
+                    Arial, sans-serif,
+                     "Apple Color Emoji",
+                      "Segoe UI Emoji", 
+                      "Segoe UI Symbol", 
+                      "Noto Color Emoji";
     font-size: 22px;
 }
 
@@ -69,6 +74,7 @@ a {
 ul>li>a:hover {
     color: black;
     font-weight: bold;
+    background-color: white;
 }
 
 ul:last-child {
@@ -78,7 +84,7 @@ ul:last-child {
 
 /*hero-section starts*/
 .site-hero {
-    background-image: url(../../../assests/images/image_1.jpg);
+    background-image: url(../images/4.JPG);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -169,7 +175,7 @@ ul:last-child {
 
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 720px;
+        max-width: 750px;
     }
 
     /*hero-section starts*/
@@ -190,14 +196,198 @@ ul:last-child {
 
 @media screen and (min-width: 992px) {
     .container {
-        max-width: 960px;
+        max-width: 970px;
     }
 }
 
 @media screen and (min-width: 1200px) {
     .container {
-        max-width: 1140px;
+        max-width: 1170px;
         margin: 0 auto;
         width: 100%;
     }
+}
+
+/* what-i-do section */
+.services {
+	border-bottom: 1px solid #eaebec;
+	background-color: #f7f8fa;
+}
+
+.section-header {
+	margin-bottom: 60px;
+	text-align: center;
+}
+
+.section-header h2 {
+    padding-top: 30px;
+    margin-bottom: 20px;
+    font-family: "Cabin", Helvetica Neue, Sans-serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+
+	line-height: 3.125rem;
+}
+
+.dark-text {
+    color: #454545;
+}
+
+.colored-line {
+    background: #57d131;
+    margin: auto;
+    display: block;
+    width: 80px;
+    height: 3px;
+}
+
+.sub-heading {
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+.services-wrap {
+    position: relative;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.service_row {
+	float: left;
+	width: 31.5%;
+	min-height: 1px;
+	margin: 0 1.25% 0 1.25%;
+}
+
+.col_first {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.service_row > div{
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.services-wrap,
+ .service-box {
+	display: inline-block;
+	text-align: center;
+}
+
+.single-service {
+	padding: 40px 35px 40px 35px;
+	border-top: 1px solid #eaeaea;
+	border-right: 1px solid #eaeaea;
+	border-bottom: 4px solid #eaeaea;
+	border-left: 1px solid #eaeaea;
+	border-radius: 3px;
+	background: #fff;
+}
+
+.single-service h3 {
+    margin-bottom: 15px;
+    padding-top: 5px;
+}
+
+.single-service.p{
+    margin: 0 0 10px;
+}
+
+.border-bottom-hover:hover {
+	border-bottom-color: #57d131;;
+}
+
+.service-icon {
+	margin-bottom: 35px;
+}
+
+i.fas.fa-users.colored-text,
+i.fas.fa-code.colored-text,
+i.fab.fa-uikit.colored-text {
+    font-size: 60px;
+}
+
+a.colored-text{ 
+    font-size: 22px;
+}
+
+
+.col_third {
+	margin-right: 0;
+	padding-right: 0;
+}
+
+h3 a:hover,
+.service-icon > a:hover {
+    background-color: transparent;
+}
+
+
+/* contact-info*/
+.contact-info {
+    background-color: #fff;
+    text-align: center;
+    border-bottom: 1px solid #eaebec;
+}
+
+.contact-info .section-overlay-layer {
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.contact-links .contact-link-box {
+    display: inline-block;
+    float: none;
+    margin-right: -4px;
+    text-align: center;
+    vertical-align: top;
+}
+
+@media (min-width: 768px) {
+.col-sm-4 {
+    width: 33.33333333%;
+}
+}
+
+.col-xs-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.contact-info .icon-container {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.colored-text {
+    color: #57d131;
+}
+
+.contact-info .contact-links a {
+    padding-top: 65px;
+    padding-bottom: 0;
+}
+
+.strong {
+    font-weight: 550;
+}
+
+.contact-info .contact-links a:hover {
+    background-color: transparent;
 }

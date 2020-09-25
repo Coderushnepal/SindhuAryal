@@ -14,10 +14,7 @@ export async function getAll() {
 }
 
 export async function getById(id) {
-  const [data] = await connection
-    .select('id', 'title', 'desc', 'image', 'is_active', 'created_at')
-    .from(table)
-    .where({ id: id, is_active: true });
+  const data = await connection.select('*').from(table).where({ id, is_active: true });
 
   return data[0] ? camelize(data[0]) : null;
 }

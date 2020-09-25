@@ -2,7 +2,7 @@ import logger from '../utils/logger';
 import { hash, compare } from '../utils/crypt';
 import BadRequestError from '../utils/BadRequestError';
 import * as adminLoginModel from '../models/admin_login';
-
+import { generateToken } from '../utils/jwt';
 /**
  * Create an admin
  *
@@ -47,9 +47,12 @@ export async function adminLogin(params) {
     throw new BadRequestError('Invalid login credentials');
   }
 
+  const token = generateToken(admin);
+
   return {
     data: {
-      admin
+      admin,
+      token
     },
     message: 'Logged In Successfully!!'
   };
